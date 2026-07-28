@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Искусственный интеллект — 50 уроков</title>
+    <meta name="description" content="Курс по основам ИИ: 50 уроков от теории к практике. Machine Learning, нейросети, компьютерное зрение и другое.">
+    <link rel="canonical" href="{{ site.url }}/">
+    <meta name="robots" content="index, follow">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "AI — Основы искусственного интеллекта",
+      "description": "50 уроков по ИИ от теории к практике",
+      "provider": { "@type": "Organization", "name": "Nayanova Academy" },
+      "educationalLevel": "beginner",
+      "numberOfLessons": "50",
+      "inLanguage": "ru"
+    }
+    </script>
+    <link rel="stylesheet" href="{{ '/css/main.css' | relUrl }}?v={{ assetsHash.mainCss }}">
+  </head>
+  <body class="index-page page-index">
+    <a href="#main-content" class="skip-link">Перейти к содержанию</a>
+    <div class="container index-container">
+      <header class="index-header">
+        <h1>🤖 <span>AI</span> — основы искусственного интеллекта</h1>
+        <p>50 уроков от теории к практике</p>
+        <div class="progress-bar-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Прогресс прохождения курса"></div>
+        <span class="progress-info"></span>
+        <div class="badges-section" id="badgesBlock" hidden>
+          <div class="badges-header">
+            <div class="badges-title">🏆 Достижения</div>
+            <button class="badges-all-btn" id="badgesAllBtn" type="button">Все достижения</button>
+          </div>
+          <div class="badges-grid" id="badgesGrid"></div>
+        </div>
+      </header>
+
+      <div class="search-container">
+        <label for="lesson-search" class="sr-only">Поиск уроков</label>
+        <input type="text" id="lesson-search" class="search-input" placeholder="🔍 Поиск уроков... (попробуйте: нейросети, трансформеры, GPT)" autocomplete="off">
+      </div>
+
+      <main class="index-nav" id="main-content">
+        {% for section in collections.sections %}
+        <div class="section-group" data-section="{{ section.id }}" id="section-{{ section.id }}">
+          <h2 class="section-title">{{ section.icon }} {{ section.title }}</h2>
+          <div class="section-cards">
+            {% for lesson in section.lessons %}
+            <a href="{{ lesson.url }}" class="topic-card" data-lesson="{{ lesson.num }}">
+              <div class="topic-num">{{ lesson.num }}</div>
+              <div class="topic-info">
+                <h2>{{ lesson.title }}</h2>
+                <p>{{ lesson.desc }}</p>
+                {% if lesson.duration %}<div class="topic-meta"><span class="meta-duration">⏱ {{ lesson.duration }} мин</span> · <span class="meta-complexity" data-level="{{ lesson.complexity }}">{% if lesson.complexity == 'beginner' %}🚀 Начальный{% elif lesson.complexity == 'basic' %}📘 Базовый{% elif lesson.complexity == 'intermediate' %}📗 Средний{% elif lesson.complexity == 'advanced' %}📙 Продвинутый{% else %}{{ lesson.complexity }}{% endif %}</span></div>{% endif %}
+              </div>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </main>
+      <footer class="index-footer">
+        Создано для изучения основ искусственного интеллекта. Все примеры кода доступны для повторения.
+      </footer>
+    </div>
+
+    <div class="modal-overlay" id="achievementModal">
+      <div class="modal-content">
+        <button class="modal-close" id="modalClose">✕</button>
+        <div class="modal-body" id="modalBody"></div>
+      </div>
+    </div>
+
+    <script src="{{ '/js/main.js' | relUrl }}?v={{ assetsHash.mainJs }}" type="module"></script>
+  </body>
+</html>

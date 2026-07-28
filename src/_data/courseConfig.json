@@ -1,0 +1,579 @@
+{
+  "LESSON_META": {
+    "01-what-is-ai": {
+      "number": 1,
+      "title": "Что такое искусственный интеллект",
+      "section": "intro",
+      "order": 1,
+      "description": "Определение ИИ, типы ИИ: слабый и сильный. Где ИИ используется уже сегодня.",
+      "duration": 10,
+      "complexity": "beginner",
+      "filename": "01-what-is-ai.html"
+    },
+    "02-course-overview": {
+      "number": 2,
+      "title": "Обзор курса и инструментов",
+      "section": "intro",
+      "order": 2,
+      "description": "Структура курса, какие инструменты и библиотеки изучим, как организовано обучение.",
+      "duration": 8,
+      "complexity": "beginner",
+      "filename": "02-course-overview.html"
+    },
+    "03-ai-birth": {
+      "number": 3,
+      "title": "Зарождение ИИ: Тьюринг и первые идеи",
+      "section": "history",
+      "order": 3,
+      "description": "Тест Тьюринга, Дартмутская конференция 1956 года, первые шаги в сторону создания искусственного интеллекта.",
+      "duration": 12,
+      "complexity": "beginner",
+      "filename": "03-ai-birth.html"
+    },
+    "04-expert-systems": {
+      "number": 4,
+      "title": "Экспертные системы и первые успехи",
+      "section": "history",
+      "order": 4,
+      "description": "MYCIN, DENDRAL и другие экспертные системы 1970–80-х годов.",
+      "duration": 10,
+      "complexity": "beginner",
+      "filename": "04-expert-systems.html"
+    },
+    "05-ai-winter": {
+      "number": 5,
+      "title": "Зима ИИ и её преодоление",
+      "section": "history",
+      "order": 5,
+      "description": "Причины зим ИИ, разочарования и надежды, как ИИ восстанавливался.",
+      "duration": 10,
+      "complexity": "beginner",
+      "filename": "05-ai-winter.html"
+    },
+    "06-deep-learning-revolution": {
+      "number": 6,
+      "title": "Революция глубокого обучения",
+      "section": "history",
+      "order": 6,
+      "description": "ImageNet, AlexNet, GPU-вычисления и возвращение нейросетей.",
+      "duration": 12,
+      "complexity": "basic",
+      "filename": "06-deep-learning-revolution.html"
+    },
+    "07-transformers-era": {
+      "number": 7,
+      "title": "Трансформеры и эпоха LLM",
+      "section": "history",
+      "order": 7,
+      "description": "Attention Is All You Need, GPT, BERT и рождение большой языковой модели.",
+      "duration": 12,
+      "complexity": "basic",
+      "filename": "07-transformers-era.html"
+    },
+    "08-linear-algebra": {
+      "number": 8,
+      "title": "Линейная алгебра: векторы и матрицы",
+      "section": "math",
+      "order": 8,
+      "description": "Векторы, матрицы, умножение матриц, транспонирование — основа для понимания нейросетей.",
+      "duration": 15,
+      "complexity": "basic",
+      "filename": "08-linear-algebra.html"
+    },
+    "09-probability": {
+      "number": 9,
+      "title": "Теория вероятностей для ИИ",
+      "section": "math",
+      "order": 9,
+      "description": "Вероятности, теорема Байеса, условные вероятности — как машины рассуждают о неопределённости.",
+      "duration": 12,
+      "complexity": "basic",
+      "filename": "09-probability.html"
+    },
+    "10-statistics": {
+      "number": 10,
+      "title": "Статистика и распределения",
+      "section": "math",
+      "order": 10,
+      "description": "Нормальное распределение, дисперсия, стандартное отклонение — анализ данных в ИИ.",
+      "duration": 12,
+      "complexity": "basic",
+      "filename": "10-statistics.html"
+    },
+    "11-optimization": {
+      "number": 11,
+      "title": "Оптимизация: градиентный спуск",
+      "section": "math",
+      "order": 11,
+      "description": "Градиенты, learning rate, SGD, Adam — как нейросети учатся.",
+      "duration": 15,
+      "complexity": "intermediate",
+      "filename": "11-optimization.html"
+    },
+    "12-activation-functions": {
+      "number": 12,
+      "title": "Функции активации",
+      "section": "math",
+      "order": 12,
+      "description": "Sigmoid, ReLU, GELU, softmax — зачем нейросетям нелинейности.",
+      "duration": 10,
+      "complexity": "basic",
+      "filename": "12-activation-functions.html"
+    },
+    "13-loss-functions": {
+      "number": 13,
+      "title": "Функции потерь и метрики",
+      "section": "math",
+      "order": 13,
+      "description": "Cross-entropy, MSE, accuracy, F1 — как измеряется качество моделей.",
+      "duration": 12,
+      "complexity": "basic",
+      "filename": "13-loss-functions.html"
+    },
+    "14-regularization": {
+      "number": 14,
+      "title": "Регуляризация и борьба с переобучением",
+      "section": "math",
+      "order": 14,
+      "description": "Dropout, L1/L2-регуляризация, early stopping — как модели не заучивают данные наизусть.",
+      "duration": 10,
+      "complexity": "intermediate",
+      "filename": "14-regularization.html"
+    },
+    "15-information-theory": {
+      "number": 15,
+      "title": "Information Theory и энтропия",
+      "section": "math",
+      "order": 15,
+      "description": "Энтропия Шеннона, KL-расхождение, кросс-энтропия — математика информации.",
+      "duration": 12,
+      "complexity": "intermediate",
+      "filename": "15-information-theory.html"
+    },
+    "16-perceptron": {
+      "number": 16,
+      "title": "Персептрон и полносвязные сети",
+      "section": "neural-networks",
+      "order": 16,
+      "description": "Персептрон, многослойные полносвязные сети, прямое распространение сигнала.",
+      "duration": 12,
+      "complexity": "basic",
+      "filename": "16-perceptron.html"
+    },
+    "17-backpropagation": {
+      "number": 17,
+      "title": "Обратное распространение ошибки",
+      "section": "neural-networks",
+      "order": 17,
+      "description": "Backpropagation, цепное правило, вычисление градиентов — сердце обучения нейросетей.",
+      "duration": 15,
+      "complexity": "intermediate",
+      "filename": "17-backpropagation.html"
+    },
+    "18-cnn": {
+      "number": 18,
+      "title": "Свёрточные нейросети (CNN)",
+      "section": "neural-networks",
+      "order": 18,
+      "description": "Свёрточные слои, пулинг, архитектуры CNN для компьютерного зрения.",
+      "duration": 12,
+      "complexity": "intermediate",
+      "filename": "18-cnn.html"
+    },
+    "19-rnn": {
+      "number": 19,
+      "title": "Рекуррентные нейросети (RNN)",
+      "section": "neural-networks",
+      "order": 19,
+      "description": "RNN для последовательностей, проблема затухающих градиентов.",
+      "duration": 12,
+      "complexity": "intermediate",
+      "filename": "19-rnn.html"
+    },
+    "20-lstm-gru": {
+      "number": 20,
+      "title": "LSTM и GRU",
+      "section": "neural-networks",
+      "order": 20,
+      "description": "Ячейки памяти, gate-механизмы, LSTM vs GRU — решение проблемы затухающих градиентов.",
+      "duration": 12,
+      "complexity": "intermediate",
+      "filename": "20-lstm-gru.html"
+    },
+    "21-autoencoders": {
+      "number": 21,
+      "title": "Автоэнкодеры и генеративные модели",
+      "section": "neural-networks",
+      "order": 21,
+      "description": "Автоэнкодеры, VAE, вариационные модели — генерация нового из данных.",
+      "duration": 12,
+      "complexity": "advanced",
+      "filename": "21-autoencoders.html"
+    },
+    "22-gans-diffusion": {
+      "number": 22,
+      "title": "GAN и диффузионные модели",
+      "section": "neural-networks",
+      "order": 22,
+      "description": "GAN, Stable Diffusion, DALL-E — генерация изображений из шума.",
+      "duration": 12,
+      "complexity": "advanced",
+      "filename": "22-gans-diffusion.html"
+    },
+    "23-transformer-overview": {
+      "number": 23,
+      "title": "Архитектура Transformer: обзор",
+      "section": "transformer",
+      "order": 23,
+      "description": "Общая архитектура Transformer, encoder-decoder, почему она изменила мир ИИ.",
+      "duration": 12,
+      "complexity": "intermediate",
+      "filename": "23-transformer-overview.html"
+    },
+    "24-self-attention": {
+      "number": 24,
+      "title": "Механизм внимания (Self-Attention)",
+      "section": "transformer",
+      "order": 24,
+      "description": "Query, Key, Value, скалярное произведение — как Transformer «понимает» контекст.",
+      "duration": 15,
+      "complexity": "intermediate",
+      "filename": "24-self-attention.html"
+    },
+    "25-multi-head-attention": {
+      "number": 25,
+      "title": "Multi-Head Attention",
+      "section": "transformer",
+      "order": 25,
+      "description": "Многоголовое внимание, параллельные вычисления, разные «взгляды» на данные.",
+      "duration": 12,
+      "complexity": "intermediate",
+      "filename": "25-multi-head-attention.html"
+    },
+    "26-positional-encoding": {
+      "number": 26,
+      "title": "Positional Encoding",
+      "section": "transformer",
+      "order": 26,
+      "description": "Позиционное кодирование, синусоиды, RoPE — как Transformer узнаёт порядок слов.",
+      "duration": 10,
+      "complexity": "intermediate",
+      "filename": "26-positional-encoding.html"
+    },
+    "27-encoder-decoder": {
+      "number": 27,
+      "title": "Encoder и Decoder",
+      "section": "transformer",
+      "order": 27,
+      "description": "Когда используется encoder, когда decoder, encoder-only vs decoder-only модели.",
+      "duration": 10,
+      "complexity": "intermediate",
+      "filename": "27-encoder-decoder.html"
+    },
+    "28-layer-norm-residual": {
+      "number": 28,
+      "title": "Layer Normalization и Residual Connections",
+      "section": "transformer",
+      "order": 28,
+      "description": "Нормализация, остаточные соединения — стабильность глубоких моделей.",
+      "duration": 10,
+      "complexity": "intermediate",
+      "filename": "28-layer-norm-residual.html"
+    },
+    "29-data-preparation": {
+      "number": 29,
+      "title": "Сбор и подготовка данных",
+      "section": "training",
+      "order": 29,
+      "description": "Датасеты, аугментация, нормализация — качественные данные для обучения.",
+      "duration": 12,
+      "complexity": "basic",
+      "filename": "29-data-preparation.html"
+    },
+    "30-training-process": {
+      "number": 30,
+      "title": "Процесс обучения: батчи, эпохи, learning rate",
+      "section": "training",
+      "order": 30,
+      "description": "Batch size, epochs, lr schedule, warmup — основы обучения моделей.",
+      "duration": 15,
+      "complexity": "basic",
+      "filename": "30-training-process.html"
+    },
+    "31-fine-tuning": {
+      "number": 31,
+      "title": "Тонкая настройка (Fine-tuning)",
+      "section": "training",
+      "order": 31,
+      "description": "Fine-tuning предобученных моделей на своих данных.",
+      "duration": 12,
+      "complexity": "intermediate",
+      "filename": "31-fine-tuning.html"
+    },
+    "32-transfer-learning": {
+      "number": 32,
+      "title": "Transfer Learning",
+      "section": "training",
+      "order": 32,
+      "description": "Трансфер обучения, заморозка слоёв, адаптация под свою задачу.",
+      "duration": 12,
+      "complexity": "intermediate",
+      "filename": "32-transfer-learning.html"
+    },
+    "33-rlhf": {
+      "number": 33,
+      "title": "RLHF и alignment моделей",
+      "section": "training",
+      "order": 33,
+      "description": "Обучение с подкреплением на основе обратной связи от людей — как делают ChatGPT.",
+      "duration": 12,
+      "complexity": "advanced",
+      "filename": "33-rlhf.html"
+    },
+    "34-what-is-llm": {
+      "number": 34,
+      "title": "Что такое LLM: от GPT до современных моделей",
+      "section": "llm",
+      "order": 34,
+      "description": "GPT-1/2/3/4, Llama, Mistral, Claude — обзор ландшафта больших языковых моделей.",
+      "duration": 12,
+      "complexity": "basic",
+      "filename": "34-what-is-llm.html"
+    },
+    "35-tokenization": {
+      "number": 35,
+      "title": "Токенизация и словарь",
+      "section": "llm",
+      "order": 35,
+      "description": "BPE, WordPiece, SentencePiece — как текст превращается в числа.",
+      "duration": 12,
+      "complexity": "basic",
+      "filename": "35-tokenization.html"
+    },
+    "36-prompt-engineering": {
+      "number": 36,
+      "title": "Prompt Engineering",
+      "section": "llm",
+      "order": 36,
+      "description": "Техники промптинга, zero-shot, few-shot, chain-of-thought — искусство общаться с LLM.",
+      "duration": 12,
+      "complexity": "basic",
+      "filename": "36-prompt-engineering.html"
+    },
+    "37-in-context-learning": {
+      "number": 37,
+      "title": "In-context Learning: Zero-shot и Few-shot",
+      "section": "llm",
+      "order": 37,
+      "description": "Демонстрация в контексте, ICL — обучение без градиентов.",
+      "duration": 10,
+      "complexity": "basic",
+      "filename": "37-in-context-learning.html"
+    },
+    "38-rag": {
+      "number": 38,
+      "title": "RAG: генерация с retrieve",
+      "section": "llm",
+      "order": 38,
+      "description": "Retrieval-Augmented Generation, векторные БД, семантический поиск — LLM с доступом к документам.",
+      "duration": 15,
+      "complexity": "intermediate",
+      "filename": "38-rag.html"
+    },
+    "39-llm-evaluation": {
+      "number": 39,
+      "title": "Оценка качества ответов LLM",
+      "section": "llm",
+      "order": 39,
+      "description": "Benchmarks, human eval, perplexity — как измерить, насколько хороша модель.",
+      "duration": 10,
+      "complexity": "intermediate",
+      "filename": "39-llm-evaluation.html"
+    },
+    "40-quantization": {
+      "number": 40,
+      "title": "Квантизация и оптимизация моделей",
+      "section": "llm",
+      "order": 40,
+      "description": "INT8, INT4, GGUF, GPTQ, AWQ — как запускать большие модели на обычных компьютерах.",
+      "duration": 12,
+      "complexity": "advanced",
+      "filename": "40-quantization.html"
+    },
+    "41-llama-family": {
+      "number": 41,
+      "title": "Семейство моделей Llama",
+      "section": "llama",
+      "order": 41,
+      "description": "Llama 1/2/3/3.1/4 — сравнение, выбор правильной модели для задачи.",
+      "duration": 10,
+      "complexity": "basic",
+      "filename": "41-llama-family.html"
+    },
+    "42-llama-architecture": {
+      "number": 42,
+      "title": "Архитектура Llama",
+      "section": "llama",
+      "order": 42,
+      "description": "RoPE, GQA, SwiGLU — особенности архитектуры Llama.",
+      "duration": 12,
+      "complexity": "intermediate",
+      "filename": "42-llama-architecture.html"
+    },
+    "43-llama-local": {
+      "number": 43,
+      "title": "Запуск Llama локально",
+      "section": "llama",
+      "order": 43,
+      "description": "Ollama, llama.cpp, LM Studio — запуск Llama на своём компьютере.",
+      "duration": 12,
+      "complexity": "basic",
+      "filename": "43-llama-local.html"
+    },
+    "44-llama-finetuning": {
+      "number": 44,
+      "title": "Дообучение Llama на своих данных",
+      "section": "llama",
+      "order": 44,
+      "description": "LoRA, QLoRA, датасеты для дообучения — адаптация Llama под свою задачу.",
+      "duration": 15,
+      "complexity": "advanced",
+      "filename": "44-llama-finetuning.html"
+    },
+    "45-llama-api": {
+      "number": 45,
+      "title": "Llama через API и интеграция",
+      "section": "llama",
+      "order": 45,
+      "description": "Together AI, Groq, OpenRouter, LangChain — работа с Llama через API.",
+      "duration": 12,
+      "complexity": "intermediate",
+      "filename": "45-llama-api.html"
+    },
+    "46-ai-tools-overview": {
+      "number": 46,
+      "title": "Обзор ИИ-инструментов для разработчиков",
+      "section": "tools",
+      "order": 46,
+      "description": "Ландшафт ИИ-инструментов: редакторы, CLI, агенты, плагины.",
+      "duration": 10,
+      "complexity": "beginner",
+      "filename": "46-ai-tools-overview.html"
+    },
+    "47-cline": {
+      "number": 47,
+      "title": "Cline: AI-ассистент для VS Code",
+      "section": "tools",
+      "order": 47,
+      "description": "Автономный агент, планы выполнения, инструменты, MCP — Cline в действии.",
+      "duration": 12,
+      "complexity": "basic",
+      "filename": "47-cline.html"
+    },
+    "48-opencode": {
+      "number": 48,
+      "title": "Opencode: интерактивная CLI-разработка",
+      "section": "tools",
+      "order": 48,
+      "description": "CLI-инструмент для разработки с ИИ, файловые операции, агентные возможности.",
+      "duration": 12,
+      "complexity": "basic",
+      "filename": "48-opencode.html"
+    },
+    "49-hermes-agent": {
+      "number": 49,
+      "title": "Hermes Agent: автономные ИИ-агенты",
+      "section": "tools",
+      "order": 49,
+      "description": "Агентная архитектура, ReAct, tool use — ИИ, который действует сам.",
+      "duration": 12,
+      "complexity": "intermediate",
+      "filename": "49-hermes-agent.html"
+    },
+    "50-tools-integration": {
+      "number": 50,
+      "title": "Интеграция инструментов в рабочий процесс",
+      "section": "tools",
+      "order": 50,
+      "description": "Сравнение инструментов, выбор по задаче, best practices интеграции ИИ в разработку.",
+      "duration": 10,
+      "complexity": "basic",
+      "filename": "50-tools-integration.html"
+    }
+  },
+  "sections": [
+    {
+      "id": "intro",
+      "name": "Введение",
+      "icon": "🤖",
+      "order": 1,
+      "startLesson": 1,
+      "endLesson": 2
+    },
+    {
+      "id": "history",
+      "name": "История ИИ",
+      "icon": "📜",
+      "order": 2,
+      "startLesson": 3,
+      "endLesson": 7
+    },
+    {
+      "id": "math",
+      "name": "Математические основы",
+      "icon": "🔢",
+      "order": 3,
+      "startLesson": 8,
+      "endLesson": 15
+    },
+    {
+      "id": "neural-networks",
+      "name": "Нейросети",
+      "icon": "🧠",
+      "order": 4,
+      "startLesson": 16,
+      "endLesson": 22
+    },
+    {
+      "id": "transformer",
+      "name": "Архитектура Transformer",
+      "icon": "⚡",
+      "order": 5,
+      "startLesson": 23,
+      "endLesson": 28
+    },
+    {
+      "id": "training",
+      "name": "Обучение моделей",
+      "icon": "📊",
+      "order": 6,
+      "startLesson": 29,
+      "endLesson": 33
+    },
+    {
+      "id": "llm",
+      "name": "Большие языковые модели",
+      "icon": "💬",
+      "order": 7,
+      "startLesson": 34,
+      "endLesson": 40
+    },
+    {
+      "id": "llama",
+      "name": "Meta Llama",
+      "icon": "🦙",
+      "order": 8,
+      "startLesson": 41,
+      "endLesson": 45
+    },
+    {
+      "id": "tools",
+      "name": "Инструменты разработчика",
+      "icon": "🛠️",
+      "order": 9,
+      "startLesson": 46,
+      "endLesson": 50
+    }
+  ],
+  "totalLessons": 50
+}

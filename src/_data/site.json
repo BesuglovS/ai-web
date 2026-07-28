@@ -1,0 +1,11 @@
+{
+    "title": "AI — Основы искусственного интеллекта",
+    "url": "https://ai.nayanovaacademy.ru",
+    "description": "50 уроков по истории ИИ, математическим основам, нейросетям, Transformer, LLM и инструментам разработчика",
+    "author": "AI Course Team",
+    "launchDate": "2026-01-01",
+    "currentYear": 2026,
+    "yandexMetrikaId": "REPLACE_WITH_REAL_ID",
+    "githubUrl": "https://github.com/nayanova/ai-web",
+    "authUrl": "https://auth.nayanovaacademy.ru"
+}

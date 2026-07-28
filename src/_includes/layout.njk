@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} — AI: основы</title>
+    <meta name="description" content="{{ description or 'Урок ' + lessonNumber + ': ' + title }}">
+    <link rel="canonical" href="{{ site.url }}/{{ page.fileSlug }}.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "AI — Основы искусственного интеллекта",
+        "description": "50 уроков по ИИ от теории к практике",
+        "provider": { "@type": "Organization", "name": "Nayanova Academy" },
+        "educationalLevel": "Начальный"
+    }
+    </script>
+
+    <link rel="stylesheet" href="{{ '/css/main.css' | relUrl }}?v={{ assetsHash.mainCss }}">
+</head>
+<body data-lesson-number="{{ lessonNumber }}" class="page-lesson">
+    <div class="progress-bar" id="progressBar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Прокрутка страницы"></div>
+
+    <header class="header">
+        <div class="container">
+            <a href="{{ '/' | relUrl }}" class="header__logo">🤖 AI — основы</a>
+            <nav class="header__nav">
+                <a href="{{ '/' | relUrl }}" class="header__nav-link">Главная</a>
+                <div class="auth-container"></div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">🌙</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="content-wrapper">
+        <aside class="toc-sidebar" id="tocSidebar">
+            <nav id="tocNav" aria-label="Содержание"></nav>
+        </aside>
+
+        <main class="main-content container" id="main-content">
+            <nav class="breadcrumb-nav" id="breadcrumbs">
+                <a href="{{ '/' | relUrl }}">Главная</a>
+                <span class="breadcrumb-nav__separator">›</span>
+                <span class="breadcrumb-nav__current" id="breadcrumbsCurrent">{{ title }}</span>
+            </nav>
+
+            <div class="topic-header">
+                <h1 class="topic-header__title">{{ title }}</h1>
+                <p class="topic-header__description">{{ description }}</p>
+            </div>
+
+            <article class="page-content" id="topicContent">
+                {{ content | safe }}
+            </article>
+
+            <div class="quiz-container" id="quizContainer"></div>
+            <div class="lesson-badges" id="lessonBadges"></div>
+
+            <div class="bottom-controls" id="bottomControls">
+                <a class="bottom-controls__link bottom-controls__link--prev" id="prevLesson" href="#">← Предыдущий</a>
+                <a class="bottom-controls__link bottom-controls__link--next" id="nextLesson" href="#">Следующий →</a>
+            </div>
+
+            <footer class="footer">
+                <p>AI — основы искусственного интеллекта © {{ currentYear }}</p>
+                <p>При поддержке <a href="https://nayanovaacademy.ru" target="_blank" rel="noopener">Nayanova Academy</a></p>
+            </footer>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="achievementModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">✕</button>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="{{ '/js/main.js' | relUrl }}?v={{ assetsHash.mainJs }}" type="module"></script>
+</body>
+</html>

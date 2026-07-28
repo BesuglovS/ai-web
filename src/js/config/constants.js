@@ -1,0 +1,16 @@
+export const STORAGE_PREFIX = 'ai-web-';
+export const PROGRESS_API = '/sandbox/progress.php';
+export const BADGES_API = '/sandbox/badges.php';
+export const AUTH_CHECK_API = '/sandbox/auth_check.php';
+export const AUTH_SERVICE_URL = 'https://auth.nayanovaacademy.ru';
+export const LESSONS_PER_PAGE = 12;
+export const QUIZ_MIN_SCORE = 70;
+export const QUIZ_PENALTY_DAYS = 7;
+export const REWARD_DELAY_MS = 0;
+export const THEORETICAL_CONTESTS = false;
+export const REPL_URL = null;
+export const MINDMAP_URL = null;
+export const SANDBOX_ENABLED = false;
+export const SEARCH_DEBOUNCE_MS = 300;
+export const SCROLL_THROTTLE_MS = 100;
+export const PROGRESS_DEBOUNCE_MS = 500;

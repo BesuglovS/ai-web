@@ -1,0 +1,191 @@
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  .header,
+  .footer,
+  .toc-sidebar,
+  .hamburger,
+  .mobile-nav,
+  .mobile-nav-overlay,
+  .back-to-top,
+  .progress-bar,
+  .search-container,
+  .bottom-controls,
+  .pagination,
+  .breadcrumb-nav,
+  .sidebar-overlay,
+  .nav,
+  .code-toolbar__copy,
+  .auth-button,
+  .profile-dropdown,
+  .index-filter,
+  .stats-bar,
+  .hero__actions,
+  .lesson-meta,
+  .hide-print {
+    display: none !important;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .content-wrapper {
+    display: block;
+    padding: 0;
+  }
+
+  .main-content {
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 24pt;
+    -webkit-text-fill-color: #000000 !important;
+    background: none !important;
+    margin-bottom: 12pt;
+  }
+
+  h2 {
+    font-size: 18pt;
+    margin-top: 24pt;
+    margin-bottom: 8pt;
+    border-bottom: 1pt solid #cccccc;
+  }
+
+  h3 {
+    font-size: 14pt;
+    margin-top: 18pt;
+    margin-bottom: 6pt;
+  }
+
+  h4 {
+    font-size: 12pt;
+    margin-top: 12pt;
+    margin-bottom: 6pt;
+  }
+
+  p {
+    margin-bottom: 8pt;
+    orphans: 3;
+    widows: 3;
+  }
+
+  a {
+    color: #000000 !important;
+    text-decoration: underline;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #666666;
+  }
+
+  pre {
+    border: 1pt solid #cccccc;
+    page-break-inside: avoid;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  pre code {
+    font-size: 9pt;
+    color: #333333 !important;
+  }
+
+  blockquote {
+    border-left: 3pt solid #cccccc;
+    padding-left: 12pt;
+    margin-left: 0;
+  }
+
+  table {
+    font-size: 10pt;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  h2 {
+    page-break-before: always;
+  }
+
+  h2:first-of-type {
+    page-break-before: auto;
+  }
+
+  .callout {
+    border: 1pt solid #cccccc;
+    padding: 8pt;
+    margin: 8pt 0;
+    page-break-inside: avoid;
+  }
+
+  .card-grid,
+  .lesson-grid {
+    display: block;
+  }
+
+  .card,
+  .lesson-card {
+    border: 1pt solid #cccccc;
+    padding: 8pt;
+    margin-bottom: 8pt;
+    page-break-inside: avoid;
+  }
+
+  .hero {
+    padding: 12pt 0;
+  }
+
+  .section-card {
+    border: 1pt solid #cccccc;
+    padding: 12pt;
+    page-break-inside: avoid;
+  }
+
+  @page {
+    margin: 2cm;
+    size: A4;
+  }
+
+  @page:first {
+    margin-top: 3cm;
+  }
+
+  .page-wrapper {
+    min-height: auto;
+  }
+}
