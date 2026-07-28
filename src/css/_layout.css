@@ -51,8 +51,8 @@
   left: 0;
   width: 0%;
   height: 3px;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-  z-index: var(--z-sticky);
+  background: linear-gradient(90deg, #007bff, #00d4ff);
+  z-index: 9999;
   transition: width 150ms ease-out;
 }
 

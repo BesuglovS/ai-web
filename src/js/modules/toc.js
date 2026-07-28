@@ -13,9 +13,10 @@ function extractHeadings() {
     if (!heading.id) {
       heading.id = `heading-${index}`;
     }
+    const text = heading.textContent.trim();
     return {
       id: heading.id,
-      text: heading.textContent.trim(),
+      text: text,
       level: parseInt(heading.tagName.charAt(1), 10),
       el: heading
     };
@@ -34,11 +35,10 @@ function renderToc(headingsList) {
   const list = createEl('ol', { className: 'toc-list' });
 
   headingsList.forEach(h => {
-    const li = createEl('li', {
-      className: `toc-item toc-level-${h.level}`
-    });
+    const li = createEl('li', { className: 'toc-item' });
+    const levelClass = h.level === 3 ? ' toc-list__link--level-2' : h.level === 4 ? ' toc-list__link--level-3' : '';
     const a = createEl('a', {
-      className: 'toc-link',
+      className: 'toc-list__link' + levelClass,
       href: `#${h.id}`,
       textContent: h.text
     });
@@ -61,7 +61,7 @@ function renderToc(headingsList) {
   container.appendChild(nav);
   container.style.display = '';
 
-  tocLinks = qsa('.toc-link', container);
+  tocLinks = qsa('.toc-list__link', container);
 }
 
 function updateActiveHeading() {
@@ -78,7 +78,7 @@ function updateActiveHeading() {
   if (currentId !== activeId) {
     activeId = currentId;
     tocLinks.forEach(link => {
-      link.classList.toggle('active', link.dataset.targetId === currentId);
+      link.classList.toggle('toc-list__link--active', link.dataset.targetId === currentId);
     });
   }
 }
