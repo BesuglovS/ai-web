@@ -1,29 +1,8 @@
-import { AUTH_SERVICE_URL, STORAGE_PREFIX } from '../config/constants.js';
+import { AUTH_SERVICE_URL } from '../config/constants.js';
 import { qs, on, createEl, storageGet, storageSet, storageRemove } from './utils.js';
 import { checkAuth } from './api-client.js';
 
 let currentUser = null;
-
-function getToken() {
-  try {
-    const raw = localStorage.getItem(STORAGE_PREFIX + 'auth-token');
-    return raw ? JSON.parse(raw) : null;
-  } catch {
-    return null;
-  }
-}
-
-function setToken(token) {
-  try {
-    localStorage.setItem(STORAGE_PREFIX + 'auth-token', JSON.stringify(token));
-  } catch {}
-}
-
-function removeToken() {
-  try {
-    localStorage.removeItem(STORAGE_PREFIX + 'auth-token');
-  } catch {}
-}
 
 function setUser(user) {
   currentUser = user;
@@ -48,7 +27,7 @@ function renderUserInfo(user) {
     });
     if (!user.avatar) avatar.style.display = 'none';
 
-    const name = createEl('span', { className: 'auth-user-name', textContent: user.name || user.email });
+    const name = createEl('span', { className: 'auth-user-name', textContent: user.name || user.email || user.display_name || user.login });
     const logoutBtn = createEl('button', {
       className: 'btn btn-outline auth-logout-btn',
       textContent: 'Выйти'
@@ -112,7 +91,7 @@ function openLoginModal() {
     on(cancelBtn, 'click', closeLoginModal);
     on(confirmBtn, 'click', () => {
       const returnUrl = encodeURIComponent(window.location.href);
-      window.location.href = `${AUTH_SERVICE_URL}/login?return=${returnUrl}`;
+      window.location.href = `${AUTH_SERVICE_URL}/index.php?page=login&redirect=${returnUrl}`;
     });
     on(document, 'keydown', (e) => {
       if (e.key === 'Escape') closeLoginModal();
@@ -127,10 +106,11 @@ function closeLoginModal() {
 }
 
 async function logout() {
-  removeToken();
   storageRemove('auth-user');
   currentUser = null;
   renderUserInfo(null);
+  const returnUrl = encodeURIComponent(window.location.href);
+  window.location.href = `${AUTH_SERVICE_URL}/api/logout.php?redirect=${returnUrl}`;
 }
 
 async function initAuth() {
@@ -141,22 +121,18 @@ async function initAuth() {
 
   renderUserInfo(currentUser);
 
-  const token = getToken();
-  if (token) {
-    try {
-      const result = await checkAuth();
-      if (result.authenticated && result.user) {
-        setUser(result.user);
-        renderUserInfo(result.user);
-      } else {
-        removeToken();
-        storageRemove('auth-user');
-        currentUser = null;
-        renderUserInfo(null);
-      }
-    } catch {
-      renderUserInfo(currentUser);
+  try {
+    const result = await checkAuth();
+    if (result.authenticated && result.user) {
+      setUser(result.user);
+      renderUserInfo(result.user);
+    } else {
+      storageRemove('auth-user');
+      currentUser = null;
+      renderUserInfo(null);
     }
+  } catch {
+    renderUserInfo(currentUser);
   }
 }
 

@@ -1,21 +1,7 @@
-import { PROGRESS_API, BADGES_API, AUTH_CHECK_API, STORAGE_PREFIX } from '../config/constants.js';
-
-function getAuthToken() {
-  try {
-    const raw = localStorage.getItem(STORAGE_PREFIX + 'auth-token');
-    return raw ? JSON.parse(raw) : null;
-  } catch {
-    return null;
-  }
-}
+import { PROGRESS_API, BADGES_API, AUTH_CHECK_API } from '../config/constants.js';
 
 function buildHeaders(extra = {}) {
-  const headers = { 'Content-Type': 'application/json', ...extra };
-  const token = getAuthToken();
-  if (token) {
-    headers['Authorization'] = `Bearer ${token}`;
-  }
-  return headers;
+  return { 'Content-Type': 'application/json', ...extra };
 }
 
 async function request(url, options = {}) {
@@ -24,6 +10,7 @@ async function request(url, options = {}) {
 
   try {
     const response = await fetch(url, {
+      credentials: 'include',
       ...options,
       signal: controller.signal,
       headers: buildHeaders(options.headers)
@@ -88,4 +75,4 @@ export async function checkAuth() {
   }
 }
 
-export { request, getAuthToken };
+export { request };

@@ -1,8 +1,8 @@
 <?php
 function jsonResponse($data, $code = 200) {
     http_response_code($code);
-    header('Content-Type: application/json');
-    echo json_encode($data);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     exit;
 }
 
@@ -15,20 +15,16 @@ function setCorsHeaders($allowedOrigins = ['*']) {
     if (in_array('*', $allowedOrigins) || in_array($origin, $allowedOrigins)) {
         header('Access-Control-Allow-Origin: ' . ($origin ?: '*'));
     }
-    header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-    header('Access-Control-Allow-Headers: Content-Type, Authorization');
+    header('Access-Control-Allow-Methods: GET, POST, PUT, OPTIONS');
+    header('Access-Control-Allow-Headers: Content-Type');
     header('Access-Control-Allow-Credentials: true');
 }
 
+/**
+ * Текущий пользователь по единой куке auth_session (общий AuthClient).
+ */
 function getUserFromRequest($auth) {
-    $token = null;
-    if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
-        $token = str_replace('Bearer ', '', $_SERVER['HTTP_AUTHORIZATION']);
-    }
-    if (!$token) {
-        return null;
-    }
-    return $auth->checkSession($token);
+    return $auth->getCurrentUser();
 }
 
 function requireAuth($auth) {
