@@ -16,7 +16,7 @@ $db->init();
 $auth = new Auth($config, $db);
 $user = $auth->getCurrentUser();
 
-$userId = $user ? $userId : null;
+$userId = $user ? (int)($user['id'] ?? 0) : null;
 if (!$userId) {
     $userId = 'anon_' . md5($_SERVER['REMOTE_ADDR'] . ($_SERVER['HTTP_USER_AGENT'] ?? ''));
 }

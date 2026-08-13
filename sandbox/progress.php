@@ -2,6 +2,7 @@
 require_once __DIR__ . '/sandbox_common.php';
 require_once __DIR__ . '/Database.php';
 require_once __DIR__ . '/Auth.php';
+require_once __DIR__ . '/ProgressReporter.php';
 
 $config = require __DIR__ . '/config.php';
 setCorsHeaders($config['allowed_origins']);
@@ -16,35 +17,51 @@ $db->init();
 $auth = new Auth($config, $db);
 $user = $auth->getCurrentUser();
 
-// Use auth user ID or fallback to device-based ID
-$userId = $user ? $userId : null;
+$userId = $user ? (int)($user['id'] ?? 0) : null;
 if (!$userId) {
-    // For unauthenticated users, use IP + user-agent as anonymous ID
     $userId = 'anon_' . md5($_SERVER['REMOTE_ADDR'] . ($_SERVER['HTTP_USER_AGENT'] ?? ''));
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $lesson = isset($_GET['lesson']) ? (int)$_GET['lesson'] : null;
+    $lesson = isset($_GET['lesson']) ? (int) $_GET['lesson'] : null;
     if ($lesson !== null) {
         $progress = $db->getProgress($userId, $lesson);
         jsonResponse(['progress' => $progress]);
     }
     $all = $db->getAllProgress($userId);
     $stats = $db->getStats($userId);
-    jsonResponse(['progress' => $all, 'stats' => $stats]);
+    $completedLessons = [];
+    foreach ($all as $row) {
+        if (!empty($row['completed'])) {
+            $completedLessons[] = (int) $row['lesson_number'];
+        }
+    }
+    jsonResponse(['progress' => $all, 'completedLessons' => $completedLessons, 'stats' => $stats]);
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $body = getJsonBody();
-    $lessonNumber = $body['lesson_number'] ?? null;
-    $completed = $body['completed'] ?? false;
-    $quizScore = $body['quiz_score'] ?? 0;
+    $lessonNumber = isset($body['lesson']) ? $body['lesson'] : ($body['lesson_number'] ?? null);
+    $completed = !empty($body['completed']);
+    $quizScore = isset($body['quiz_score']) ? (int) $body['quiz_score'] : 0;
 
     if ($lessonNumber === null || !is_numeric($lessonNumber)) {
-        errorResponse('lesson_number is required');
+        errorResponse('lesson is required');
     }
 
-    $db->setProgress($userId, (int)$lessonNumber, $completed, (int)$quizScore);
+    $db->setProgress($userId, (int) $lessonNumber, $completed, (int) $quizScore);
+
+    if ($user) {
+        $all = $db->getAllProgress($userId);
+        $completedCount = 0;
+        foreach ($all as $row) {
+            if (!empty($row['completed'])) {
+                $completedCount++;
+            }
+        }
+        ProgressReporter::report((int) $userId, 'ai', $completedCount, (int) ($config['total_lessons'] ?? 50));
+    }
+
     jsonResponse(['success' => true]);
 }
 
