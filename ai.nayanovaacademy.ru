@@ -16,12 +16,21 @@ server {
     ssl_session_cache shared:SSL:10m;
     ssl_session_timeout 1d;
     add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+    add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://auth.nayanovaacademy.ru; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://auth.nayanovaacademy.ru; frame-ancestors 'none'" always;
+    add_header X-Frame-Options "DENY" always;
+    add_header X-Content-Type-Options "nosniff" always;
 
     root /var/www/ai.nayanovaacademy.ru/public;
     index index.html index.htm index.php;
 
     access_log /var/log/nginx/ai.nayanovaacademy.ru.access.log;
     error_log  /var/log/nginx/ai.nayanovaacademy.ru.error.log;
+
+    # SQLite (data/ai.db) не должна отдаваться вебом
+    location ^~ /data/ {
+        deny all;
+        return 404;
+    }
 
     location / {
         try_files $uri $uri/ /index.html;

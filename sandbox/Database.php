@@ -31,16 +31,9 @@ class Database {
                 PRIMARY KEY (user_id, badge_id)
             )
         ");
-        $this->db->exec("
-            CREATE TABLE IF NOT EXISTS sessions (
-                token TEXT PRIMARY KEY,
-                user_id TEXT NOT NULL,
-                user_name TEXT,
-                user_email TEXT,
-                created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-                expires_at DATETIME NOT NULL
-            )
-        ");
+        // Легаси-таблица sessions больше не нужна: авторизация — SSO через auth-web
+        // (кука auth_session + AuthClient), локальных токенов нет. Чистим старые БД.
+        $this->db->exec("DROP TABLE IF EXISTS sessions");
     }
 
     public function getProgress($userId, $lessonNumber) {
@@ -127,36 +120,6 @@ class Database {
         $stmt->bindValue(':bid', $badgeId, SQLITE3_TEXT);
         $stmt->execute();
         return $this->db->changes() > 0;
-    }
-
-    public function cleanupSessions() {
-        $this->db->exec("DELETE FROM sessions WHERE expires_at < CURRENT_TIMESTAMP");
-    }
-
-    public function getSession($token) {
-        $stmt = $this->db->prepare("SELECT * FROM sessions WHERE token = :t AND expires_at > CURRENT_TIMESTAMP");
-        $stmt->bindValue(':t', $token, SQLITE3_TEXT);
-        $result = $stmt->execute();
-        return $result->fetchArray(SQLITE3_ASSOC) ?: null;
-    }
-
-    public function createSession($token, $userId, $userName, $userEmail, $expiresAt) {
-        $stmt = $this->db->prepare("
-            INSERT OR REPLACE INTO sessions (token, user_id, user_name, user_email, expires_at)
-            VALUES (:t, :uid, :name, :email, :exp)
-        ");
-        $stmt->bindValue(':t', $token, SQLITE3_TEXT);
-        $stmt->bindValue(':uid', $userId, SQLITE3_TEXT);
-        $stmt->bindValue(':name', $userName, SQLITE3_TEXT);
-        $stmt->bindValue(':email', $userEmail, SQLITE3_TEXT);
-        $stmt->bindValue(':exp', $expiresAt, SQLITE3_TEXT);
-        $stmt->execute();
-    }
-
-    public function deleteSession($token) {
-        $stmt = $this->db->prepare("DELETE FROM sessions WHERE token = :t");
-        $stmt->bindValue(':t', $token, SQLITE3_TEXT);
-        $stmt->execute();
     }
 
     public function getUserBadges($userId) {

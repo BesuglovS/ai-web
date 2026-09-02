@@ -14,12 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 $db = new Database($config['db_path']);
 $db->init();
 $auth = new Auth($config, $db);
-$user = $auth->getCurrentUser();
 
-$userId = $user ? (int)($user['id'] ?? 0) : null;
-if (!$userId) {
-    $userId = 'anon_' . md5($_SERVER['REMOTE_ADDR'] . ($_SERVER['HTTP_USER_AGENT'] ?? ''));
-}
+// Бейджи храним только для авторизованных учеников (SSO), как и прогресс.
+$user = requireAuth($auth);
+$userId = (int)($user['id'] ?? 0);
 
 $BADGE_DEFINITIONS = [
     'first_lesson' => ['name' => 'First Steps', 'description' => 'Complete your first lesson', 'check' => fn($stats) => $stats['total_lessons_completed'] >= 1],

@@ -15,12 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 $db = new Database($config['db_path']);
 $db->init();
 $auth = new Auth($config, $db);
-$user = $auth->getCurrentUser();
 
-$userId = $user ? (int)($user['id'] ?? 0) : null;
-if (!$userId) {
-    $userId = 'anon_' . md5($_SERVER['REMOTE_ADDR'] . ($_SERVER['HTTP_USER_AGENT'] ?? ''));
-}
+// Прогресс храним только для авторизованных учеников (SSO).
+// Анонимные запросы получают 401 — клиент продолжает вести локальный прогресс.
+$user = requireAuth($auth);
+$userId = (int)($user['id'] ?? 0);
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $lesson = isset($_GET['lesson']) ? (int) $_GET['lesson'] : null;
@@ -51,16 +50,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $db->setProgress($userId, (int) $lessonNumber, $completed, (int) $quizScore);
 
-    if ($user) {
-        $all = $db->getAllProgress($userId);
-        $completedCount = 0;
-        foreach ($all as $row) {
-            if (!empty($row['completed'])) {
-                $completedCount++;
-            }
+    $all = $db->getAllProgress($userId);
+    $completedCount = 0;
+    foreach ($all as $row) {
+        if (!empty($row['completed'])) {
+            $completedCount++;
         }
-        ProgressReporter::report((int) $userId, 'ai', $completedCount, (int) ($config['total_lessons'] ?? 50));
     }
+    ProgressReporter::report($userId, 'ai', $completedCount, (int) ($config['total_lessons'] ?? 50));
+
+    jsonResponse(['success' => true]);
+}
+
+// Пакетная запись: { updates: [{lesson, completed, quiz_score}, ...] }
+if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+    $body = getJsonBody();
+    $updates = isset($body['updates']) && is_array($body['updates']) ? $body['updates'] : [];
+
+    if (!$updates) {
+        errorResponse('updates is required');
+    }
+
+    foreach ($updates as $update) {
+        if (!is_array($update)) {
+            continue;
+        }
+        $lessonNumber = isset($update['lesson']) ? $update['lesson'] : ($update['lesson_number'] ?? null);
+        if ($lessonNumber === null || !is_numeric($lessonNumber)) {
+            continue;
+        }
+        $completed = !empty($update['completed']);
+        $quizScore = isset($update['quiz_score']) ? (int) $update['quiz_score'] : 0;
+        $db->setProgress($userId, (int) $lessonNumber, $completed, $quizScore);
+    }
+
+    $all = $db->getAllProgress($userId);
+    $completedCount = 0;
+    foreach ($all as $row) {
+        if (!empty($row['completed'])) {
+            $completedCount++;
+        }
+    }
+    ProgressReporter::report($userId, 'ai', $completedCount, (int) ($config['total_lessons'] ?? 50));
 
     jsonResponse(['success' => true]);
 }

@@ -10,14 +10,21 @@ function errorResponse($message, $code = 400) {
     jsonResponse(['error' => $message], $code);
 }
 
-function setCorsHeaders($allowedOrigins = ['*']) {
+/**
+ * CORS только для явно разрешённых origin.
+ * Дефолт — пустой список: забытый аргумент больше не открывает доступ всем.
+ * Access-Control-Allow-Credentials с '*' невалиден по спецификации Fetch,
+ * поэтому заголовки доступа уходят только при точном совпадении origin.
+ */
+function setCorsHeaders($allowedOrigins = []) {
     $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
-    if (in_array('*', $allowedOrigins) || in_array($origin, $allowedOrigins)) {
-        header('Access-Control-Allow-Origin: ' . ($origin ?: '*'));
-    }
     header('Access-Control-Allow-Methods: GET, POST, PUT, OPTIONS');
     header('Access-Control-Allow-Headers: Content-Type');
-    header('Access-Control-Allow-Credentials: true');
+    if ($origin !== '' && in_array($origin, (array) $allowedOrigins, true)) {
+        header('Access-Control-Allow-Origin: ' . $origin);
+        header('Vary: Origin');
+        header('Access-Control-Allow-Credentials: true');
+    }
 }
 
 /**

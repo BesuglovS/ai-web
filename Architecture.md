@@ -149,7 +149,7 @@
 | transformer (трансформеры) | 23-28 | advanced |
 | training (обучение) | 29-33 | intermediate |
 | llm (языковые модели) | 34-40 | basic-advanced |
-| llama (Meta Llama) | 41-45 | intermediate-advanced |
+| llama (открытые модели и локальный запуск) | 41-45 | intermediate-advanced |
 | tools (инструменты) | 46-50 | basic-intermediate |
 
 Каждый урок содержит поля: `section`, `number`, `slug`, `title`, `description`, `complexity`, `duration`.

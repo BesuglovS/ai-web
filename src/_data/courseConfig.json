@@ -5,7 +5,7 @@
       "title": "Что такое искусственный интеллект",
       "section": "intro",
       "order": 1,
-      "description": "Определение ИИ, типы ИИ: слабый и сильный. Где ИИ используется уже сегодня.",
+      "description": "Что такое ИИ, почему весь современный ИИ «узкий» и где он уже работает. Практика: мини-тест Тьюринга на чат-ботах.",
       "duration": 10,
       "complexity": "beginner",
       "filename": "01-what-is-ai.html"
@@ -15,7 +15,7 @@
       "title": "Обзор курса и инструментов",
       "section": "intro",
       "order": 2,
-      "description": "Структура курса, какие инструменты и библиотеки изучим, как организовано обучение.",
+      "description": "Маршрут курса — от истории до своего проекта с ИИ-агентом. Знакомимся с инструментами практики: чат-ботами, Colab и Opencode.",
       "duration": 8,
       "complexity": "beginner",
       "filename": "02-course-overview.html"
@@ -25,7 +25,7 @@
       "title": "Зарождение ИИ: Тьюринг и первые идеи",
       "section": "history",
       "order": 3,
-      "description": "Тест Тьюринга, Дартмутская конференция 1956 года, первые шаги в сторону создания искусственного интеллекта.",
+      "description": "Игра в имитацию Тьюринга и Дартмутская конференция 1956 года: как человечество впервые всерьёз задумалось об умных машинах.",
       "duration": 12,
       "complexity": "beginner",
       "filename": "03-ai-birth.html"
@@ -35,7 +35,7 @@
       "title": "Экспертные системы и первые успехи",
       "section": "history",
       "order": 4,
-      "description": "MYCIN, DENDRAL и другие экспертные системы 1970–80-х годов.",
+      "description": "MYCIN и DENDRAL: попытки 1970–80-х упаковать знания экспертов в правила — и главный урок, который они нам оставили.",
       "duration": 10,
       "complexity": "beginner",
       "filename": "04-expert-systems.html"
@@ -45,7 +45,7 @@
       "title": "Зима ИИ и её преодоление",
       "section": "history",
       "order": 5,
-      "description": "Причины зим ИИ, разочарования и надежды, как ИИ восстанавливался.",
+      "description": "Почему дважды замерзало финансирование ИИ и какие выводы из тех разочарований помогают трезво смотреть на хайп сегодня.",
       "duration": 10,
       "complexity": "beginner",
       "filename": "05-ai-winter.html"
@@ -55,7 +55,7 @@
       "title": "Революция глубокого обучения",
       "section": "history",
       "order": 6,
-      "description": "ImageNet, AlexNet, GPU-вычисления и возвращение нейросетей.",
+      "description": "ImageNet и AlexNet: как в 2012 году нейросети на игровых видеокартах внезапно обогнали всех в распознавании изображений.",
       "duration": 12,
       "complexity": "basic",
       "filename": "06-deep-learning-revolution.html"
@@ -65,7 +65,7 @@
       "title": "Трансформеры и эпоха LLM",
       "section": "history",
       "order": 7,
-      "description": "Attention Is All You Need, GPT, BERT и рождение большой языковой модели.",
+      "description": "Attention Is All You Need, GPT и BERT: одна статья 2017 года, из которой выросли современные чат-боты.",
       "duration": 12,
       "complexity": "basic",
       "filename": "07-transformers-era.html"
@@ -75,7 +75,7 @@
       "title": "Линейная алгебра: векторы и матрицы",
       "section": "math",
       "order": 8,
-      "description": "Векторы, матрицы, умножение матриц, транспонирование — основа для понимания нейросетей.",
+      "description": "Векторы и матрицы из школьной геометрии — язык нейросетей. Умножаем матрицы руками и понимаем, зачем это моделям.",
       "duration": 15,
       "complexity": "basic",
       "filename": "08-linear-algebra.html"
@@ -85,7 +85,7 @@
       "title": "Теория вероятностей для ИИ",
       "section": "math",
       "order": 9,
-      "description": "Вероятности, теорема Байеса, условные вероятности — как машины рассуждают о неопределённости.",
+      "description": "Условная вероятность и формула Байеса — та самая, что встречается в задачах ЕГЭ. Как машины рассуждают о неопределённости.",
       "duration": 12,
       "complexity": "basic",
       "filename": "09-probability.html"
@@ -95,7 +95,7 @@
       "title": "Статистика и распределения",
       "section": "math",
       "order": 10,
-      "description": "Нормальное распределение, дисперсия, стандартное отклонение — анализ данных в ИИ.",
+      "description": "Среднее, дисперсия и нормальное распределение — на примере оценок и роста одноклассников. Зачем это датасетам.",
       "duration": 12,
       "complexity": "basic",
       "filename": "10-statistics.html"
@@ -105,7 +105,7 @@
       "title": "Оптимизация: градиентный спуск",
       "section": "math",
       "order": 11,
-      "description": "Градиенты, learning rate, SGD, Adam — как нейросети учатся.",
+      "description": "Производная из 11 класса как компас: градиентный спуск учит нейросеть «спускаться» по склону ошибки к минимуму.",
       "duration": 15,
       "complexity": "intermediate",
       "filename": "11-optimization.html"
@@ -115,7 +115,7 @@
       "title": "Функции активации",
       "section": "math",
       "order": 12,
-      "description": "Sigmoid, ReLU, GELU, softmax — зачем нейросетям нелинейности.",
+      "description": "ReLU, sigmoid, softmax — простые функции, благодаря которым сеть умеет описывать сложные нелинейные зависимости.",
       "duration": 10,
       "complexity": "basic",
       "filename": "12-activation-functions.html"
@@ -125,7 +125,7 @@
       "title": "Функции потерь и метрики",
       "section": "math",
       "order": 13,
-      "description": "Cross-entropy, MSE, accuracy, F1 — как измеряется качество моделей.",
+      "description": "MSE, кросс-энтропия, accuracy и F1: как измеряют ошибку модели и почему одной точности мало.",
       "duration": 12,
       "complexity": "basic",
       "filename": "13-loss-functions.html"
@@ -135,17 +135,17 @@
       "title": "Регуляризация и борьба с переобучением",
       "section": "math",
       "order": 14,
-      "description": "Dropout, L1/L2-регуляризация, early stopping — как модели не заучивают данные наизусть.",
+      "description": "Переобучение — зубрёжка по-нейросетевому: dropout, L1/L2 и early stopping, чтобы модель понимала, а не заучивала.",
       "duration": 10,
       "complexity": "intermediate",
       "filename": "14-regularization.html"
     },
     "15-information-theory": {
       "number": 15,
-      "title": "Information Theory и энтропия",
+      "title": "Энтропия и теория информации",
       "section": "math",
       "order": 15,
-      "description": "Энтропия Шеннона, KL-расхождение, кросс-энтропия — математика информации.",
+      "description": "Энтропия Шеннона: сколько информации в сообщении. От сжатия файлов до функции потерь языковых моделей.",
       "duration": 12,
       "complexity": "intermediate",
       "filename": "15-information-theory.html"
@@ -155,7 +155,7 @@
       "title": "Персептрон и полносвязные сети",
       "section": "neural-networks",
       "order": 16,
-      "description": "Персептрон, многослойные полносвязные сети, прямое распространение сигнала.",
+      "description": "Один нейрон вручную: взвешенная сумма и порог, затем слои. Прямое распространение сигнала на конкретных числах.",
       "duration": 12,
       "complexity": "basic",
       "filename": "16-perceptron.html"
@@ -165,7 +165,7 @@
       "title": "Обратное распространение ошибки",
       "section": "neural-networks",
       "order": 17,
-      "description": "Backpropagation, цепное правило, вычисление градиентов — сердце обучения нейросетей.",
+      "description": "Цепное правило из школьной математики — сердце обучения сетей. Разбираем, куда течёт ошибка и кто исправляет каждый вес.",
       "duration": 15,
       "complexity": "intermediate",
       "filename": "17-backpropagation.html"
@@ -175,37 +175,37 @@
       "title": "Свёрточные нейросети (CNN)",
       "section": "neural-networks",
       "order": 18,
-      "description": "Свёрточные слои, пулинг, архитектуры CNN для компьютерного зрения.",
+      "description": "Свёртки и пулинг: как сеть учится видеть грани, формы и котиков. Кейс — распознавание рукописных цифр.",
       "duration": 12,
       "complexity": "intermediate",
       "filename": "18-cnn.html"
     },
-    "19-rnn": {
+    "19-rnn-lstm-gru": {
       "number": 19,
-      "title": "Рекуррентные нейросети (RNN)",
+      "title": "Рекуррентные сети: RNN, LSTM, GRU",
       "section": "neural-networks",
       "order": 19,
-      "description": "RNN для последовательностей, проблема затухающих градиентов.",
+      "description": "Сети с памятью: RNN читает текст шаг за шагом, LSTM и GRU учатся удерживать контекст — и почему трансформеры их вытеснили.",
       "duration": 12,
       "complexity": "intermediate",
-      "filename": "19-rnn.html"
+      "filename": "19-rnn-lstm-gru.html"
     },
-    "20-lstm-gru": {
+    "20-first-network-python": {
       "number": 20,
-      "title": "LSTM и GRU",
+      "title": "Практика: первая нейросеть на Python",
       "section": "neural-networks",
       "order": 20,
-      "description": "Ячейки памяти, gate-механизмы, LSTM vs GRU — решение проблемы затухающих градиентов.",
-      "duration": 12,
-      "complexity": "intermediate",
-      "filename": "20-lstm-gru.html"
+      "description": "Практикум в Google Colab: считаем прямой проход на NumPy, затем обучаем полносвязную сеть на рукописных цифрах средствами Keras.",
+      "duration": 15,
+      "complexity": "basic",
+      "filename": "20-first-network-python.html"
     },
     "21-autoencoders": {
       "number": 21,
       "title": "Автоэнкодеры и генеративные модели",
       "section": "neural-networks",
       "order": 21,
-      "description": "Автоэнкодеры, VAE, вариационные модели — генерация нового из данных.",
+      "description": "Сжать и восстановить: автоэнкодеры и VAE — как машина учится представлять данные и придумывать новые образы.",
       "duration": 12,
       "complexity": "advanced",
       "filename": "21-autoencoders.html"
@@ -215,7 +215,7 @@
       "title": "GAN и диффузионные модели",
       "section": "neural-networks",
       "order": 22,
-      "description": "GAN, Stable Diffusion, DALL-E — генерация изображений из шума.",
+      "description": "GAN как дуэль фальшивомонетчика и сыщика; диффузия Stable Diffusion: как картинка собирается из шума по запросу.",
       "duration": 12,
       "complexity": "advanced",
       "filename": "22-gans-diffusion.html"
@@ -225,7 +225,7 @@
       "title": "Архитектура Transformer: обзор",
       "section": "transformer",
       "order": 23,
-      "description": "Общая архитектура Transformer, encoder-decoder, почему она изменила мир ИИ.",
+      "description": "Большая карта трансформера: энкодер, декодер, внимание. Почему эта схема вытеснила RNN в работе с текстом.",
       "duration": 12,
       "complexity": "intermediate",
       "filename": "23-transformer-overview.html"
@@ -235,7 +235,7 @@
       "title": "Механизм внимания (Self-Attention)",
       "section": "transformer",
       "order": 24,
-      "description": "Query, Key, Value, скалярное произведение — как Transformer «понимает» контекст.",
+      "description": "Query, Key, Value на библиотечной аналогии: считаем self-attention руками на коротком предложении.",
       "duration": 15,
       "complexity": "intermediate",
       "filename": "24-self-attention.html"
@@ -245,17 +245,17 @@
       "title": "Multi-Head Attention",
       "section": "transformer",
       "order": 25,
-      "description": "Многоголовое внимание, параллельные вычисления, разные «взгляды» на данные.",
+      "description": "Зачем вниманию много голов: параллельные «взгляды» на предложение и сборка общего вывода.",
       "duration": 12,
       "complexity": "intermediate",
       "filename": "25-multi-head-attention.html"
     },
     "26-positional-encoding": {
       "number": 26,
-      "title": "Positional Encoding",
+      "title": "Позиционное кодирование (Positional Encoding)",
       "section": "transformer",
       "order": 26,
-      "description": "Позиционное кодирование, синусоиды, RoPE — как Transformer узнаёт порядок слов.",
+      "description": "Порядок слов меняет смысл: синусоиды и RoPE — как трансформер отличает «кот съел мышь» от «мышь съела кота».",
       "duration": 10,
       "complexity": "intermediate",
       "filename": "26-positional-encoding.html"
@@ -265,17 +265,17 @@
       "title": "Encoder и Decoder",
       "section": "transformer",
       "order": 27,
-      "description": "Когда используется encoder, когда decoder, encoder-only vs decoder-only модели.",
+      "description": "BERT понимает, GPT порождает: чем encoder-only отличается от decoder-only и какая модель для какой задачи.",
       "duration": 10,
       "complexity": "intermediate",
       "filename": "27-encoder-decoder.html"
     },
     "28-layer-norm-residual": {
       "number": 28,
-      "title": "Layer Normalization и Residual Connections",
+      "title": "Нормализация и остаточные связи",
       "section": "transformer",
       "order": 28,
-      "description": "Нормализация, остаточные соединения — стабильность глубоких моделей.",
+      "description": "Два тихих героя глубоких сетей: LayerNorm и обходные пути, без которых обучение глубоких моделей разваливается.",
       "duration": 10,
       "complexity": "intermediate",
       "filename": "28-layer-norm-residual.html"
@@ -285,7 +285,7 @@
       "title": "Сбор и подготовка данных",
       "section": "training",
       "order": 29,
-      "description": "Датасеты, аугментация, нормализация — качественные данные для обучения.",
+      "description": "Мусор на входе — мусор на выходе: собираем свой мини-датасет и готовим его к обучению руками и pandas.",
       "duration": 12,
       "complexity": "basic",
       "filename": "29-data-preparation.html"
@@ -295,37 +295,37 @@
       "title": "Процесс обучения: батчи, эпохи, learning rate",
       "section": "training",
       "order": 30,
-      "description": "Batch size, epochs, lr schedule, warmup — основы обучения моделей.",
+      "description": "Что происходит при обучении: эпохи, батчи, learning rate и warmup — как настроить тренировку и не «пересолить».",
       "duration": 15,
       "complexity": "basic",
       "filename": "30-training-process.html"
     },
-    "31-fine-tuning": {
+    "31-transfer-finetuning": {
       "number": 31,
-      "title": "Тонкая настройка (Fine-tuning)",
+      "title": "Transfer Learning и Fine-tuning",
       "section": "training",
       "order": 31,
-      "description": "Fine-tuning предобученных моделей на своих данных.",
+      "description": "Знание переносимо: стратегии переноса предобученной модели на новую задачу — от заморозки слоёв до полной тонкой настройки.",
       "duration": 12,
       "complexity": "intermediate",
-      "filename": "31-fine-tuning.html"
+      "filename": "31-transfer-finetuning.html"
     },
-    "32-transfer-learning": {
+    "32-transfer-practice": {
       "number": 32,
-      "title": "Transfer Learning",
+      "title": "Практика: дообучаем модель на своих данных",
       "section": "training",
       "order": 32,
-      "description": "Трансфер обучения, заморозка слоёв, адаптация под свою задачу.",
-      "duration": 12,
+      "description": "Практикум в Colab: берём предобученную сеть, замораживаем основу и дообучаем финальные слои на своём мини-датасете.",
+      "duration": 15,
       "complexity": "intermediate",
-      "filename": "32-transfer-learning.html"
+      "filename": "32-transfer-practice.html"
     },
     "33-rlhf": {
       "number": 33,
       "title": "RLHF и alignment моделей",
       "section": "training",
       "order": 33,
-      "description": "Обучение с подкреплением на основе обратной связи от людей — как делают ChatGPT.",
+      "description": "Как ChatGPT научили быть полезным: RLHF на оценках людей. Обсуждаем предвзятость моделей и безопасность.",
       "duration": 12,
       "complexity": "advanced",
       "filename": "33-rlhf.html"
@@ -335,7 +335,7 @@
       "title": "Что такое LLM: от GPT до современных моделей",
       "section": "llm",
       "order": 34,
-      "description": "GPT-1/2/3/4, Llama, Mistral, Claude — обзор ландшафта больших языковых моделей.",
+      "description": "Карта больших языковых моделей: GPT, Claude, Gemini, Llama, GigaChat, YandexGPT — сходства, различия, применение.",
       "duration": 12,
       "complexity": "basic",
       "filename": "34-what-is-llm.html"
@@ -345,7 +345,7 @@
       "title": "Токенизация и словарь",
       "section": "llm",
       "order": 35,
-      "description": "BPE, WordPiece, SentencePiece — как текст превращается в числа.",
+      "description": "Почему модели ломаются на редких словах: BPE-токены — как текст превращается в числа, которые «ест» сеть.",
       "duration": 12,
       "complexity": "basic",
       "filename": "35-tokenization.html"
@@ -355,7 +355,7 @@
       "title": "Prompt Engineering",
       "section": "llm",
       "order": 36,
-      "description": "Техники промптинга, zero-shot, few-shot, chain-of-thought — искусство общаться с LLM.",
+      "description": "Роль, контекст, формат ответа, chain-of-thought: практикум — формулируем запросы и сравниваем результаты на GigaChat и Алисе.",
       "duration": 12,
       "complexity": "basic",
       "filename": "36-prompt-engineering.html"
@@ -365,17 +365,17 @@
       "title": "In-context Learning: Zero-shot и Few-shot",
       "section": "llm",
       "order": 37,
-      "description": "Демонстрация в контексте, ICL — обучение без градиентов.",
+      "description": "Показываем модели несколько примеров прямо в промпте — практикум: zero-shot против few-shot на реальных задачах без переобучения.",
       "duration": 10,
       "complexity": "basic",
       "filename": "37-in-context-learning.html"
     },
     "38-rag": {
       "number": 38,
-      "title": "RAG: генерация с retrieve",
+      "title": "RAG: ответы по вашим документам",
       "section": "llm",
       "order": 38,
-      "description": "Retrieval-Augmented Generation, векторные БД, семантический поиск — LLM с доступом к документам.",
+      "description": "Практикум: собираем мини-RAG по своим конспектам — эмбеддинги, векторный поиск и генерация на Python, знакомство с векторными базами.",
       "duration": 15,
       "complexity": "intermediate",
       "filename": "38-rag.html"
@@ -385,17 +385,17 @@
       "title": "Оценка качества ответов LLM",
       "section": "llm",
       "order": 39,
-      "description": "Benchmarks, human eval, perplexity — как измерить, насколько хороша модель.",
+      "description": "Бенчмарки, perplexity и живая оценка: как честно сравнивать модели и почему таблицам лидеров верить нельзя.",
       "duration": 10,
       "complexity": "intermediate",
       "filename": "39-llm-evaluation.html"
     },
     "40-quantization": {
       "number": 40,
-      "title": "Квантизация и оптимизация моделей",
+      "title": "Квантизация: большая модель на слабом железе",
       "section": "llm",
       "order": 40,
-      "description": "INT8, INT4, GGUF, GPTQ, AWQ — как запускать большие модели на обычных компьютерах.",
+      "description": "INT8, INT4, GGUF: как уместить огромную модель в ноутбук, сколько точности теряется и зачем это нужно.",
       "duration": 12,
       "complexity": "advanced",
       "filename": "40-quantization.html"
@@ -405,7 +405,7 @@
       "title": "Семейство моделей Llama",
       "section": "llama",
       "order": 41,
-      "description": "Llama 1/2/3/3.1/4 — сравнение, выбор правильной модели для задачи.",
+      "description": "Открытые веса меняют индустрию: Llama, Qwen, Mistral — сравниваем поколения и учимся выбирать размер модели под задачу и железо.",
       "duration": 10,
       "complexity": "basic",
       "filename": "41-llama-family.html"
@@ -415,7 +415,7 @@
       "title": "Архитектура Llama",
       "section": "llama",
       "order": 42,
-      "description": "RoPE, GQA, SwiGLU — особенности архитектуры Llama.",
+      "description": "RoPE, GQA, SwiGLU: что инженеры улучшают в современных открытых трансформерах — разбор эволюции архитектуры на примере Llama и Qwen.",
       "duration": 12,
       "complexity": "intermediate",
       "filename": "42-llama-architecture.html"
@@ -425,7 +425,7 @@
       "title": "Запуск Llama локально",
       "section": "llama",
       "order": 43,
-      "description": "Ollama, llama.cpp, LM Studio — запуск Llama на своём компьютере.",
+      "description": "Практикум: личная модель без интернета — Ollama и LM Studio. Скачиваем GGUF-модель и проверяем, какую Llama потянет ваш компьютер.",
       "duration": 12,
       "complexity": "basic",
       "filename": "43-llama-local.html"
@@ -435,7 +435,7 @@
       "title": "Дообучение Llama на своих данных",
       "section": "llama",
       "order": 44,
-      "description": "LoRA, QLoRA, датасеты для дообучения — адаптация Llama под свою задачу.",
+      "description": "Практикум: LoRA и QLoRA — дообучаем открытую модель на своих примерах без суперкомпьютера: небольшой датасет и ноутбук.",
       "duration": 15,
       "complexity": "advanced",
       "filename": "44-llama-finetuning.html"
@@ -445,7 +445,7 @@
       "title": "Llama через API и интеграция",
       "section": "llama",
       "order": 45,
-      "description": "Together AI, Groq, OpenRouter, LangChain — работа с Llama через API.",
+      "description": "Практикум: Groq, Together AI, OpenRouter — подключаем открытые модели к своим проектам через API и пишем первый интеграционный скрипт.",
       "duration": 12,
       "complexity": "intermediate",
       "filename": "45-llama-api.html"
@@ -455,7 +455,7 @@
       "title": "Обзор ИИ-инструментов для разработчиков",
       "section": "tools",
       "order": 46,
-      "description": "Ландшафт ИИ-инструментов: редакторы, CLI, агенты, плагины.",
+      "description": "Автодополнение, чат-ассистенты, автономные агенты: карта ИИ-инструментов разработчика и критерии выбора.",
       "duration": 10,
       "complexity": "beginner",
       "filename": "46-ai-tools-overview.html"
@@ -465,7 +465,7 @@
       "title": "Cline: AI-ассистент для VS Code",
       "section": "tools",
       "order": 47,
-      "description": "Автономный агент, планы выполнения, инструменты, MCP — Cline в действии.",
+      "description": "Агент прямо в редакторе: даём Cline задачу, разбираем его план, правки файлов и работу с MCP.",
       "duration": 12,
       "complexity": "basic",
       "filename": "47-cline.html"
@@ -475,7 +475,7 @@
       "title": "Opencode: интерактивная CLI-разработка",
       "section": "tools",
       "order": 48,
-      "description": "CLI-инструмент для разработки с ИИ, файловые операции, агентные возможности.",
+      "description": "ИИ-агент в терминале: как Opencode исследует проект, предлагает изменения и держит диалог по делу.",
       "duration": 12,
       "complexity": "basic",
       "filename": "48-opencode.html"
@@ -485,7 +485,7 @@
       "title": "Hermes Agent: автономные ИИ-агенты",
       "section": "tools",
       "order": 49,
-      "description": "Агентная архитектура, ReAct, tool use — ИИ, который действует сам.",
+      "description": "ReAct и tool use: как устроены агенты, которые сами планируют шаги и действуют. Разбираем агента по косточкам.",
       "duration": 12,
       "complexity": "intermediate",
       "filename": "49-hermes-agent.html"
@@ -495,7 +495,7 @@
       "title": "Интеграция инструментов в рабочий процесс",
       "section": "tools",
       "order": 50,
-      "description": "Сравнение инструментов, выбор по задаче, best practices интеграции ИИ в разработку.",
+      "description": "Финальный проект: выбор инструментов под задачу и учебный проект с ИИ-агентом. Этика, безопасность, академическая честность.",
       "duration": 10,
       "complexity": "basic",
       "filename": "50-tools-integration.html"
@@ -560,7 +560,7 @@
     },
     {
       "id": "llama",
-      "name": "Meta Llama",
+      "name": "Открытые модели и локальный запуск",
       "icon": "🦙",
       "order": 8,
       "startLesson": 41,
