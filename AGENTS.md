@@ -120,7 +120,8 @@ lessonSection: intro         # id секции из lessons.json
 
 1. Читает `.env` (`DEPLOY_SSH_HOST/PORT/USER/KEY/REMOTE_PATH`, `SANDBOX_*`).
 2. Собирает (флаг `-SkipBuild` пропускает), затем `tar` `_site/` по SSH; удалённо **полное `rm -rf` + распаковка** — без отката.
-3. Деплоит nginx-конфиг и перезагружает nginx (`nginx -t && systemctl reload`). ⚠️ Флаг `-DryRun` заявлен, но не объявлен в `param()` — nginx-блок выполняется всегда.
+3. Деплоит nginx-конфиг через `sudo -n /usr/local/sbin/deploy-nginx.sh` (deploy-пользователь,
+   sudoers deploy-nginx; хелпер сам валидирует nginx -t и откатывает конфиг при ошибке), перезагружает nginx. ⚠️ Флаг `-DryRun` заявлен, но не объявлен в `param()` — nginx-блок выполняется всегда.
 4. Требования сервера: nginx + PHP 8.1-FPM + SQLite, webroot `/var/www/ai.nayanovaacademy.ru/public/`, запись PHP в `public/data/` для `ai.db`.
 
 ## 🔒 Безопасность (не ломать)
