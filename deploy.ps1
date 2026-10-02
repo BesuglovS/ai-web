@@ -83,13 +83,17 @@ if (-not (Test-Path $sitePath)) {
 $sshArgStr = ""
 if ($sshPort -ne '22') { $sshArgStr += "-P $sshPort " }
 if ($identityFile) { $sshArgStr += "-i `"$identityFile`" " }
-$sshArgStr += "$remote `"rm -rf ${remotePath}/* ${remotePath}/.[!.]* 2>/dev/null; mkdir -p ${remotePath}; tar -xzf - -C $remotePath`""
+# Схема python-web (2026-10): data/ не стирается — SQLite ai.db
+# (db_path = public/data/ai.db) и прогресс учеников переживают деплой под
+# www-data. Прежний `rm -rf ${remotePath}/*` терял ai.db на каждом деплое.
+# data/ из tar исключён — локальные артефакты не перезаписывают боевые данные.
+$sshArgStr += "$remote `"find \`"$remotePath\`" -mindepth 1 -maxdepth 1 ! -name 'data' -exec rm -rf {} + 2>/dev/null; mkdir -p \`"$remotePath/data\`" 2>/dev/null; tar -xzf - --skip-old-files -C \`"$remotePath\`"`""
 
 Write-Host "`n==> Deploying to ${remote}:${remotePath} ..." -ForegroundColor Cyan
 
 $targz = Join-Path $env:TEMP "deploy-$(Get-Random).tar.gz"
 try {
-    & tar -czf $targz -C $sitePath .
+    & tar -czf $targz -C $sitePath --exclude=data --exclude=quizzes --exclude=.ratelimit --exclude=.repl_sessions .
     if ($LASTEXITCODE -ne 0) {
         Write-Host "Archive creation failed" -ForegroundColor Red
         exit 1
