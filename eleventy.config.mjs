@@ -16,6 +16,7 @@ export default function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("quizzes");
     eleventyConfig.addPassthroughCopy("sandbox");
     eleventyConfig.addPassthroughCopy("favicon.ico");
+    eleventyConfig.addPassthroughCopy("favicon.svg");
 
     // Markdown config
     const md = markdownIt({
