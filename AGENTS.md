@@ -101,7 +101,7 @@ lessonSection: tools         # id секции из lessons.json
 
 ### JavaScript (`src/js/`)
 - ES-модули (`import`/`export`), `export function initXxx()`; DOM-хелперы из `utils.js` (`qs`, `qsa`, `on`, `createEl`, `debounce`, `escapeHtml`, `slugify`).
-- Порядок инициализации в `script.js`: errorTracking → themeToggle → hamburgerMenu → scrollProgress → keyboardNav → smoothScroll → scrollRestore → breadcrumbs → по типу страницы (index: progress+search; lesson: progress, lesson-meta, toc, section-nav, syntax-highlight, code-toolbar, complete-lesson, badges) → `initAuth()` последним.
+- Порядок инициализации в `script.js`: errorTracking → themeToggle → hamburgerMenu → scrollProgress → keyboardNav → smoothScroll → scrollRestore → breadcrumbs → по типу страницы (index: progress+search; lesson: progress, lesson-meta, toc, section-nav, syntax-highlight, code-toolbar, table-wrapper, complete-lesson, badges) → `initAuth()` последним.
 - `tracking-client.js` — классический IIFE вне бандла, грузится отдельно, экспортирует `window.NayanovaTrack`.
 - Русские строки/комментарии, лог-префиксы `[module]`.
 

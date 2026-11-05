@@ -68,7 +68,8 @@
 
 .bottom-controls__link {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: var(--space-2);
   padding: var(--space-3) var(--space-5);
   border-radius: var(--radius-lg);
@@ -96,7 +97,7 @@
 .bottom-controls__link--next {
   margin-left: auto;
   text-align: right;
-  flex-direction: row-reverse;
+  align-items: flex-end;
 }
 
 .bottom-controls__label {

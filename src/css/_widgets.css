@@ -143,6 +143,11 @@
   border: 2px solid var(--color-primary-lighter);
 }
 
+.quiz-container:empty,
+.lesson-badges:empty {
+  display: none;
+}
+
 .quiz-container__title {
   font-size: var(--text-lg);
   font-weight: var(--font-bold);

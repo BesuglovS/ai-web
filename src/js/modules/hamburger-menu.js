@@ -27,7 +27,7 @@ export function initHamburgerMenu() {
 
   const header = document.createElement('div');
   header.className = 'hamburger-header';
-  header.textContent = '\ud83e\udd16 Уроки AI ';
+  header.textContent = '\ud83e\udd16 ИИ для Информатики';
 
   const closeBtn = document.createElement('button');
   closeBtn.className = 'hamburger-close';

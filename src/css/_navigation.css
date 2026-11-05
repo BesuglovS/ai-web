@@ -198,6 +198,7 @@
 
 .breadcrumb-nav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-3) 0;
@@ -208,6 +209,7 @@
 
 .breadcrumb-nav a {
   color: var(--color-primary);
+  white-space: nowrap;
   transition: color var(--transition-fast);
 }
 

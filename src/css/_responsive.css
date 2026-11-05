@@ -40,6 +40,14 @@
     display: flex;
   }
 
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .header .container {
+    padding-left: 72px;
+  }
+
   .header__nav {
     display: none;
   }

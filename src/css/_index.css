@@ -116,7 +116,7 @@ nav.index-nav {
 
 .section-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 12px;
 }
 
@@ -179,7 +179,9 @@ nav.index-nav {
 
 .topic-info h2 {
   font-size: 1.02em;
-  margin-bottom: 3px;
+  margin: 0 0 3px;
+  padding-bottom: 0;
+  border-bottom: none;
   color: var(--text-primary);
   transition: color var(--transition-base);
 }

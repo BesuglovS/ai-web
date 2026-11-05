@@ -40,7 +40,7 @@
 
       <div class="search-container">
         <label for="lesson-search" class="sr-only">Поиск инструкций</label>
-        <input type="text" id="lesson-search" class="search-input" placeholder="🔍 Поиск инструкций... (попробуйте: Cline, Node.js, opencode)" autocomplete="off">
+        <input type="text" id="lesson-search" class="search-input" placeholder="🔍 Поиск: Cline, Node.js, opencode" autocomplete="off">
       </div>
 
       <main class="index-nav" id="main-content">
@@ -65,13 +65,6 @@
       <footer class="index-footer">
         ИИ для Информатики — практические инструкции по инструментам искусственного интеллекта.
       </footer>
-    </div>
-
-    <div class="modal-overlay" id="achievementModal">
-      <div class="modal-content">
-        <button class="modal-close" id="modalClose">✕</button>
-        <div class="modal-body" id="modalBody"></div>
-      </div>
     </div>
 
     <script src="{{ '/js/main.js' | relUrl }}?v={{ assetsHash.mainJs }}" type="module"></script>

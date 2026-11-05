@@ -16,6 +16,7 @@ import { initScrollRestore } from './modules/scroll-restore.js';
 import { initErrorTracking } from './modules/error-tracking.js';
 import { initSyntaxHighlight } from './modules/syntax-highlight.js';
 import { initCodeToolbar } from './modules/code-toolbar.js';
+import { initTableWrappers } from './modules/table-wrapper.js';
 import { qs, qsa, on } from './modules/utils.js';
 
 function getLessonNumber() {
@@ -79,6 +80,7 @@ function initApp() {
     initSectionNav();
     initSyntaxHighlight();
     initCodeToolbar();
+    initTableWrappers();
     initCompleteLessonButton();
     renderProgressIndicators();
     checkBadges();

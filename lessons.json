@@ -33,12 +33,12 @@
     {
       "number": 2,
       "slug": "02-nodejs-opencode",
-      "title": "Node.js + opencode: установка и настройка",
+      "title": "Node.js + opencode 2: установка и настройка",
       "section": "tools",
-      "description": "Пошагово: ставим Node.js LTS и opencode, подключаем провайдера моделей и запускаем первого ИИ-агента в терминале.",
+      "description": "Пошагово: ставим Node.js LTS и opencode 2, подключаем провайдера моделей и запускаем первого ИИ-агента в терминале.",
       "duration": 25,
       "complexity": "beginner",
-      "tags": ["Node.js", "npm", "opencode", "терминал", "установка"],
+      "tags": ["Node.js", "npm", "opencode 2", "терминал", "установка"],
       "quiz": false,
       "order": 2
     }
