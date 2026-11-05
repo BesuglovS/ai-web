@@ -11,6 +11,6 @@ return [
     'db_path' => __DIR__ . '/../data/ai.db',
     'auth_service_url' => 'https://auth.nayanovaacademy.ru',
     'session_timeout' => 86400 * 30,
-    'total_lessons' => 50,
+    'total_lessons' => 2,
     'allowed_origins' => $allowedOrigins,
 ];

@@ -6,8 +6,10 @@ export default {
         return prev ? { slug: prev.slug, title: prev.title, number: prev.number } : null;
     },
     nextLesson: function(data) {
-        if (!data.lessonNumber || data.lessonNumber >= 50) return null;
+        if (!data.lessonNumber) return null;
         const lessons = data.lessonsData?.lessons || [];
+        const maxNumber = lessons.reduce((max, l) => Math.max(max, l.number), 0);
+        if (data.lessonNumber >= maxNumber) return null;
         const next = lessons.find(l => l.number === data.lessonNumber + 1);
         return next ? { slug: next.slug, title: next.title, number: next.number } : null;
     },

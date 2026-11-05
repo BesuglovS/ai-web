@@ -3,7 +3,7 @@
  * AuthClient — единый клиент единой системы авторизации (auth-web).
  *
  * Единственный источник реализации SSO для всех PHP-проектов экосистемы
- * Nayanova Academy (contest-web, python-web, ai-web, j-web и т.д.).
+ * Академия Наяновой (contest-web, python-web, ai-web, j-web и т.д.).
  * Каноническая копия: shared/php/auth-client/AuthClient.php
  *
  * Проверяет авторизацию по общей куке auth_session на .nayanovaacademy.ru

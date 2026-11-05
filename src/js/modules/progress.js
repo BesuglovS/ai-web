@@ -1,4 +1,5 @@
 import { STORAGE_PREFIX, PROGRESS_DEBOUNCE_MS } from '../config/constants.js';
+import { TOTAL_LESSONS } from '../config/courseData.js';
 import { qs, qsa, on, debounce, storageGet, storageSet } from './utils.js';
 import { sendProgress, fetchProgress } from './api-client.js';
 
@@ -99,7 +100,7 @@ export function setFinalTestScore(score) {
 
 function renderProgressIndicators() {
   const progress = getLocalProgress();
-  const total = 50;
+  const total = TOTAL_LESSONS;
   const completed = progress.completedLessons.length;
   const pct = Math.round((completed / total) * 100);
 

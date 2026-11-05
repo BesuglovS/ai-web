@@ -21,19 +21,17 @@ $userId = (int)($user['id'] ?? 0);
 
 $BADGE_DEFINITIONS = [
     'first_lesson' => ['name' => 'First Steps', 'description' => 'Complete your first lesson', 'check' => fn($stats) => $stats['total_lessons_completed'] >= 1],
-    'three_lessons' => ['name' => 'Getting Started', 'description' => 'Complete 3 lessons', 'check' => fn($stats) => $stats['total_lessons_completed'] >= 3],
-    'five_lessons' => ['name' => 'Halfway There', 'description' => 'Complete 5 lessons', 'check' => fn($stats) => $stats['total_lessons_completed'] >= 5],
-    'all_lessons' => ['name' => 'Graduate', 'description' => 'Complete all 10 lessons', 'check' => fn($stats) => $stats['total_lessons_completed'] >= 10],
-    'perfect_score' => ['name' => 'Perfect Score', 'description' => 'Get 100% on all quizzes', 'check' => function($stats) use ($db, $user) {
+    'both_lessons' => ['name' => 'Two Tools', 'description' => 'Complete both lessons', 'check' => fn($stats) => $stats['total_lessons_completed'] >= 2],
+    'all_lessons' => ['name' => 'Graduate', 'description' => 'Complete all lessons', 'check' => fn($stats) => $stats['total_lessons_completed'] >= 2],
+    'perfect_score' => ['name' => 'Perfect Score', 'description' => 'Get 100% on all quizzes', 'check' => function($stats) use ($db, $userId) {
         $all = $db->getAllProgress($userId);
-        if (count($all) < 10) return false;
+        if (count($all) < 2) return false;
         foreach ($all as $p) {
             if ($p['quiz_score'] < 100) return false;
         }
         return true;
     }],
-    'streak_3' => ['name' => 'On Fire', 'description' => 'Complete 3 lessons in a row', 'check' => fn($stats) => $stats['current_streak'] >= 3],
-    'streak_5' => ['name' => 'Unstoppable', 'description' => 'Complete 5 lessons in a row', 'check' => fn($stats) => $stats['current_streak'] >= 5],
+    'streak_2' => ['name' => 'On Fire', 'description' => 'Complete 2 lessons in a row', 'check' => fn($stats) => $stats['current_streak'] >= 2],
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {

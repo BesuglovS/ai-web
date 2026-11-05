@@ -59,7 +59,7 @@ function openLoginModal() {
     const title = createEl('h2', { className: 'auth-modal-title', textContent: 'Вход в систему' });
     const desc = createEl('p', {
       className: 'auth-modal-desc',
-      textContent: 'Вы будете перенаправлены на сайт авторизации Nayanova Academy'
+      textContent: 'Вы будете перенаправлены на сайт авторизации Академии Наяновой'
     });
     const actions = createEl('div', { className: 'auth-modal-actions' });
     const confirmBtn = createEl('button', {

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Nayanova Academy — Activity Tracking Client
+   Академия Наяновой — Activity Tracking Client
    Канонический источник: auth-web/assets/js/tracking-client.js
    Клиент учёта активности ученика (auth-web /api/track.php). Отправляет
    heartbeat'ы для авторизованных пользователей (кука auth_session) — какой

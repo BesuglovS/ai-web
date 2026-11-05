@@ -1,6 +1,6 @@
 # AGENTS.md — Инструкции для ИИ-ассистентов
 
-Статический образовательный сайт «AI — Основы искусственного интеллекта» (50 уроков, русский язык).
+Статический образовательный сайт «ИИ для Информатики» (2 подробные инструкции, русский язык).
 Сайт генерируется **Eleventy (11ty) v3** из Markdown, интерактив — vanilla JS (ES-модули, без фреймворков),
 серверная часть — тонкий PHP-бэкенд (`sandbox/`) для SSO-авторизации, прогресса (SQLite) и бейджей.
 Метаданные курса — в `lessons.json`. Прод: `https://ai.nayanovaacademy.ru`.
@@ -15,10 +15,10 @@
 3. **`_site/` — вывод сборки.** Правки только в `src/`, затем пересборка. `data/` локально пуст —
    SQLite-БД создаётся на сервере в рантайме, не заполняйте и не копируйте его.
 4. **Не коммитьте** `.env`, `_site/`, `node_modules/`, `data/*.db*` (см. `.gitignore`).
-5. **49 из 50 уроков — TODO-заготовки** (`[TODO: ...]` в `src/NN-slug.md`). Не считайте уроки написанными.
-6. **Квизы фактически не работают**: `initQuiz` не вызывается в `script.js`, `quiz.js` ищет квизы по пути
-   `/data/quizzes/quiz-N.json`, а сборка кладёт их в `_site/quizzes/`. Не «чините» вслепую — спроектируйте
-   единый путь и проверьте через nginx-catch-all.
+5. **Контент — две готовые инструкции** (`src/01-vscode-cline.md`, `src/02-nodejs-opencode.md`).
+   Не добавляйте обратно старые 50 уроков и не считайте материалы TODO-заготовками.
+6. **Квизы отключены**: у обоих уроков `quiz: false`, папка `quizzes/` пуста. Не включайте квиз без
+   создания JSON и проверки пути `/quizzes/quiz-N.json` (сборка кладёт их в `_site/quizzes/`).
 7. **SSO**: единая авторизация через `auth.nayanovaacademy.ru` (кука `auth_session`). Не вводите
    локальные JWT/сессии — `sandbox/Auth.php` это шим поверх `AuthClient`.
 8. **localStorage**: ключи с префиксом `ai-web-`, доступ только через `utils.js`/`config/security.js`.
@@ -58,8 +58,8 @@ src/js/script.js             # точка входа JS (ESM); initApp() на DO
 src/js/modules/*.js          # ~20 изолированных модулей (initXxx())
 src/js/config/*.js           # security.js, courseData.js (дублирует lessons.json — синхронизировать вручную)
 src/_plugins/norun.mjs       # плагин markdown-it (класс `norun` — не используется уроками)
-lessons.json                 # метаданные 50 уроков + секции (источник истины)
-quizzes/quiz-{NN}.json       # квизы (есть только quiz-1.json)
+lessons.json                 # метаданные 2 инструкций + секция (источник истины)
+quizzes/                     # квизы (сейчас пусто: quiz: false у обоих уроков)
 sandbox/*.php                # PHP-бэкенд: SSO auth, прогресс, бейджи (SQLite data/ai.db)
 build-*.mjs, minify.cjs      # скрипты сборки
 deploy.ps1                   # деплой по SSH
@@ -85,11 +85,11 @@ Front matter урока (точные поля):
 layout: layout.njk
 title: "..."
 description: "..."
-lessonNumber: 2           # должно совпадать с lessons.json
-lessonSlug: "02-course-overview"   # совпадает с именем файла NN-slug.md
+lessonNumber: 1           # должно совпадать с lessons.json
+lessonSlug: "01-vscode-cline"   # совпадает с именем файла NN-slug.md
 lessonComplexity: beginner   # beginner|basic|intermediate|advanced
-lessonDuration: 8            # целое, минуты
-lessonSection: intro         # id секции из lessons.json
+lessonDuration: 25           # целое, минуты
+lessonSection: tools         # id секции из lessons.json
 ---
 ```
 
@@ -122,12 +122,15 @@ lessonSection: intro         # id секции из lessons.json
 2. Собирает (флаг `-SkipBuild` пропускает), затем `tar` `_site/` по SSH; удалённо стирается
    всё, кроме `data/` (SQLite `ai.db` = `public/data/ai.db`) и root-owned `quizzes/` — они переживают
    деплой. Распаковка `tar --skip-old-files`; «полное rm -rf» (с потерей ai.db на каждом деплое)
-   больше не используется. ⚠️ `-DryRun` не реализован (не объявлен в `param()`) — запуск
-   `deploy.ps1 -DryRun` реально деплоит.
+   больше не используется. `-DryRun` показывает команды сборки/архивации/nginx без выполнения
+   и не пишет `version.json`.
+   Перед удалением проверяется, что `DEPLOY_REMOTE_PATH` совпадает с
+   `/var/www/ai.nayanovaacademy.ru/public` (защита от `rm -rf` не того каталога).
 3. Деплоит nginx-конфиг через `sudo -n /usr/local/sbin/deploy-nginx.sh` (deploy-пользователь,
    sudoers deploy-nginx; хелпер сам валидирует nginx -t и откатывает конфиг при ошибке),
    перезагружает nginx.
-4. Требования сервера: nginx + PHP 8.1-FPM + SQLite, webroot `/var/www/ai.nayanovaacademy.ru/public/`, запись PHP в `public/data/` для `ai.db`.
+4. После успешного деплоя (не в `-DryRun`/`-SkipBuild`) делает smoke-check `HEAD https://ai.nayanovaacademy.ru/`.
+5. Требования сервера: nginx + PHP 8.1-FPM + SQLite, webroot `/var/www/ai.nayanovaacademy.ru/public/`, запись PHP в `public/data/` для `ai.db`.
 
 ## 🔒 Безопасность (не ломать)
 

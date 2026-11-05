@@ -1,9 +1,9 @@
 {
-    "title": "AI — Основы искусственного интеллекта",
+    "title": "ИИ для Информатики",
     "url": "https://ai.nayanovaacademy.ru",
-    "description": "50 уроков для учеников 10–11 классов: история ИИ, математика из школьной программы, нейросети, Transformer, LLM — с практикой на чат-ботах и ИИ-агентах",
+    "description": "Две пошаговые инструкции по установке и настройке ИИ-инструментов: VS Code + Cline и Node.js + opencode.",
     "author": "AI Course Team",
-    "launchDate": "2026-01-01",
+    "launchDate": "2026-11-05",
     "currentYear": 2026,
     "yandexMetrikaId": "REPLACE_WITH_REAL_ID",
     "githubUrl": "https://github.com/nayanova/ai-web",

@@ -96,7 +96,7 @@ class Database {
         }
         return [
             'total_lessons_completed' => $completed,
-            'total_lessons_available' => 10,
+            'total_lessons_available' => 2,
             'total_quiz_score' => $totalScore,
             'current_streak' => $streak,
             'percentage' => count($progress) > 0 ? round(($completed / 10) * 100) : 0,
