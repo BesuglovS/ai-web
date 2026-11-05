@@ -31,20 +31,34 @@ function showCopyFeedback(btn) {
   }, 2000);
 }
 
-function addCopyButton(pre) {
-  if (pre.querySelector('.code-copy-btn')) return;
+function addToolbar(pre) {
+  if (pre.querySelector('.code-toolbar')) return;
 
   pre.style.position = 'relative';
 
+  const codeEl = pre.querySelector('code');
+  const classStr = (codeEl ? codeEl.className : pre.className) || '';
+  const match = classStr.match(/language-(\w+)|lang-(\w+)/);
+  const lang = match ? (match[1] || match[2]) : '';
+
+  const toolbar = createEl('div', { className: 'code-toolbar' });
+
+  if (lang) {
+    toolbar.appendChild(createEl('span', {
+      className: 'code-toolbar__lang',
+      textContent: lang
+    }));
+  }
+
   const btn = createEl('button', {
-    className: 'code-copy-btn',
+    className: 'code-toolbar__copy',
     textContent: 'Копировать',
     'aria-label': 'Копировать код'
   });
 
   on(btn, 'click', async () => {
-    const codeEl = pre.querySelector('code');
-    const text = codeEl ? codeEl.textContent : pre.textContent;
+    const code = pre.querySelector('code');
+    const text = code ? code.textContent : pre.textContent;
     const success = await copyToClipboard(text);
     if (success) {
       showCopyFeedback(btn);
@@ -54,31 +68,14 @@ function addCopyButton(pre) {
     }
   });
 
-  pre.appendChild(btn);
-}
-
-function addLanguageLabel(pre) {
-  if (pre.querySelector('.code-lang-label')) return;
-
-  const codeEl = pre.querySelector('code');
-  const classStr = (codeEl ? codeEl.className : pre.className) || '';
-  const match = classStr.match(/language-(\w+)|lang-(\w+)/);
-
-  if (match) {
-    const lang = match[1] || match[2];
-    const label = createEl('span', {
-      className: 'code-lang-label',
-      textContent: lang
-    });
-    pre.appendChild(label);
-  }
+  toolbar.appendChild(btn);
+  pre.insertBefore(toolbar, pre.firstChild);
 }
 
 function processCodeBlock(pre) {
   if (pre.dataset.toolbarAdded) return;
   pre.dataset.toolbarAdded = 'true';
-  addCopyButton(pre);
-  addLanguageLabel(pre);
+  addToolbar(pre);
 }
 
 function initCodeToolbar() {

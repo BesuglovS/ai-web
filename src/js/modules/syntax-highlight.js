@@ -59,7 +59,9 @@ function processCodeBlock(pre) {
   if (pre.dataset.highlighted) return;
 
   const language = detectLanguage(codeEl) || detectLanguage(pre);
-  const rawText = codeEl.textContent;
+  // markdown-it добавляет завершающий перевод строки; в pre он превращается
+  // в пустую строку и даёт лишний отступ снизу.
+  const rawText = codeEl.textContent.replace(/\r?\n$/, '');
 
   if (language) {
     codeEl.innerHTML = highlightCode(rawText, language);
