@@ -1,6 +1,6 @@
 # AGENTS.md — Инструкции для ИИ-ассистентов
 
-Статический образовательный сайт «ИИ для Информатики» (2 подробные инструкции, русский язык).
+Статический образовательный сайт «ИИ для Информатики» (3 подробные инструкции, русский язык).
 Сайт генерируется **Eleventy (11ty) v3** из Markdown, интерактив — vanilla JS (ES-модули, без фреймворков),
 серверная часть — тонкий PHP-бэкенд (`sandbox/`) для SSO-авторизации, прогресса (SQLite) и бейджей.
 Метаданные курса — в `lessons.json`. Прод: `https://ai.nayanovaacademy.ru`.
@@ -15,9 +15,10 @@
 3. **`_site/` — вывод сборки.** Правки только в `src/`, затем пересборка. `data/` локально пуст —
    SQLite-БД создаётся на сервере в рантайме, не заполняйте и не копируйте его.
 4. **Не коммитьте** `.env`, `_site/`, `node_modules/`, `data/*.db*` (см. `.gitignore`).
-5. **Контент — две готовые инструкции** (`src/01-vscode-cline.md`, `src/02-nodejs-opencode.md`).
-   Не добавляйте обратно старые 50 уроков и не считайте материалы TODO-заготовками.
-6. **Квизы отключены**: у обоих уроков `quiz: false`, папка `quizzes/` пуста. Не включайте квиз без
+5. **Контент — три готовые инструкции** (`src/01-vscode-cline.md`, `src/02-nodejs-opencode.md`,
+   `src/03-ai-lesson-site.md`). Не добавляйте обратно старые 50 уроков и не считайте материалы
+   TODO-заготовками.
+6. **Квизы отключены**: у всех уроков `quiz: false`, папка `quizzes/` пуста. Не включайте квиз без
    создания JSON и проверки пути `/quizzes/quiz-N.json` (сборка кладёт их в `_site/quizzes/`).
 7. **SSO**: единая авторизация через `auth.nayanovaacademy.ru` (кука `auth_session`). Не вводите
    локальные JWT/сессии — `sandbox/Auth.php` это шим поверх `AuthClient`.
@@ -50,7 +51,7 @@ npm run deploy              # деплой (powershell deploy.ps1)
 ## 🏗 Структура
 
 ```
-src/*.md                     # Уроки 01–50 (Markdown, русский; 49 из 50 — TODO-заготовки)
+src/*.md                     # Уроки 01–03 (Markdown, русский)
 src/_includes/layout.njk     # Шаблон урока; layout-index.njk — главная
 src/_data/                   # site.json, lessonsData.cjs, eleventyComputed.js, courseConfig.json (ГЕНЕРИРУЕТСЯ), assetsHash.json (ГЕНЕРИРУЕТСЯ)
 src/css/index.css            # точка входа CSS (15 partials _*.css в фиксированном порядке)
@@ -58,8 +59,8 @@ src/js/script.js             # точка входа JS (ESM); initApp() на DO
 src/js/modules/*.js          # ~20 изолированных модулей (initXxx())
 src/js/config/*.js           # security.js, courseData.js (дублирует lessons.json — синхронизировать вручную)
 src/_plugins/norun.mjs       # плагин markdown-it (класс `norun` — не используется уроками)
-lessons.json                 # метаданные 2 инструкций + секция (источник истины)
-quizzes/                     # квизы (сейчас пусто: quiz: false у обоих уроков)
+lessons.json                 # метаданные 3 инструкций + 2 секции (источник истины)
+quizzes/                     # квизы (сейчас пусто: quiz: false у всех уроков)
 sandbox/*.php                # PHP-бэкенд: SSO auth, прогресс, бейджи (SQLite data/ai.db)
 build-*.mjs, minify.cjs      # скрипты сборки
 deploy.ps1                   # деплой по SSH

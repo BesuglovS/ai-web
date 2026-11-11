@@ -21,8 +21,8 @@ $userId = (int)($user['id'] ?? 0);
 
 $BADGE_DEFINITIONS = [
     'first_lesson' => ['name' => 'First Steps', 'description' => 'Complete your first lesson', 'check' => fn($stats) => $stats['total_lessons_completed'] >= 1],
-    'both_lessons' => ['name' => 'Two Tools', 'description' => 'Complete both lessons', 'check' => fn($stats) => $stats['total_lessons_completed'] >= 2],
-    'all_lessons' => ['name' => 'Graduate', 'description' => 'Complete all lessons', 'check' => fn($stats) => $stats['total_lessons_completed'] >= 2],
+    'both_lessons' => ['name' => 'Two Tools', 'description' => 'Complete both setup lessons', 'check' => fn($stats) => $stats['total_lessons_completed'] >= 2],
+    'all_lessons' => ['name' => 'Graduate', 'description' => 'Complete all lessons', 'check' => fn($stats) => $stats['total_lessons_completed'] >= 3],
     'perfect_score' => ['name' => 'Perfect Score', 'description' => 'Get 100% on all quizzes', 'check' => function($stats) use ($db, $userId) {
         $all = $db->getAllProgress($userId);
         if (count($all) < 2) return false;

@@ -19,6 +19,16 @@
       "duration": 25,
       "complexity": "beginner",
       "filename": "02-nodejs-opencode.html"
+    },
+    "03-ai-lesson-site": {
+      "number": 3,
+      "title": "Страница или сайт по теме урока с ИИ",
+      "section": "practice",
+      "order": 3,
+      "description": "Как школьнику и учителю создать учебную веб-страницу или сайт с ИИ: общий каркас запроса, два готовых промпта, проверка и публикация.",
+      "duration": 40,
+      "complexity": "basic",
+      "filename": "03-ai-lesson-site.html"
     }
   },
   "sections": [
@@ -29,7 +39,15 @@
       "order": 1,
       "startLesson": 1,
       "endLesson": 2
+    },
+    {
+      "id": "practice",
+      "name": "Практика с ИИ",
+      "icon": "🚀",
+      "order": 2,
+      "startLesson": 3,
+      "endLesson": 3
     }
   ],
-  "totalLessons": 2
+  "totalLessons": 3
 }

@@ -2,9 +2,9 @@
   "course": {
     "id": "ai-for-informatics",
     "title": "ИИ для Информатики",
-    "description": "Две подробные инструкции: VS Code + Cline и Node.js + opencode — от установки до первого проекта с ИИ-агентом.",
+    "description": "Три подробные инструкции: VS Code + Cline, Node.js + opencode и учебная страница с ИИ — от установки до готового проекта.",
     "author": "AI Course Team",
-    "version": "3.0"
+    "version": "3.1"
   },
   "sections": [
     {
@@ -15,6 +15,15 @@
       "order": 1,
       "startLesson": 1,
       "endLesson": 2
+    },
+    {
+      "id": "practice",
+      "title": "Практика с ИИ",
+      "description": "Создаём учебную страницу или сайт по теме урока: запрос, проверка результата, публикация",
+      "icon": "🚀",
+      "order": 2,
+      "startLesson": 3,
+      "endLesson": 3
     }
   ],
   "lessons": [
@@ -41,6 +50,18 @@
       "tags": ["Node.js", "npm", "opencode 2", "терминал", "установка"],
       "quiz": false,
       "order": 2
+    },
+    {
+      "number": 3,
+      "slug": "03-ai-lesson-site",
+      "title": "Страница или сайт по теме урока с ИИ",
+      "section": "practice",
+      "description": "Как школьнику и учителю создать учебную веб-страницу или сайт с ИИ: общий каркас запроса, два готовых промпта, проверка и публикация.",
+      "duration": 40,
+      "complexity": "basic",
+      "tags": ["промпт", "HTML", "CSS", "учебный проект", "публикация"],
+      "quiz": false,
+      "order": 3
     }
   ],
   "complexityLevels": {

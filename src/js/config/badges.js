@@ -9,29 +9,36 @@ export const BADGES = [
   {
     id: 'both-tools',
     title: 'Два инструмента',
-    description: 'Пройдите обе инструкции',
+    description: 'Пройдите оба урока по инструментам',
     icon: '🛠️',
     condition: (progress) => {
       return progress.completedLessons.includes(1) && progress.completedLessons.includes(2);
     }
   },
   {
+    id: 'site-builder',
+    title: 'Первый сайт',
+    description: 'Создайте страницу по теме урока',
+    icon: '🚀',
+    condition: (progress) => progress.completedLessons.includes(3)
+  },
+  {
     id: 'speedrun',
     title: 'Спидран',
-    description: 'Пройдите обе инструкции за один день',
+    description: 'Пройдите три инструкции за один день',
     icon: '⚡',
     condition: (progress) => {
       const today = new Date().toISOString().slice(0, 10);
       const todayCount = (progress.completionDates || []).filter(d => d === today).length;
-      return todayCount >= 2;
+      return todayCount >= 3;
     }
   },
   {
     id: 'daily-reader',
     title: 'Внимательный читатель',
-    description: 'Изучите оба материала за одну сессию',
+    description: 'Изучите три материала за одну сессию',
     icon: '📚',
-    condition: (progress) => (progress.sessionLessons || 0) >= 2
+    condition: (progress) => (progress.sessionLessons || 0) >= 3
   },
   {
     id: 'weekly-marathon',
