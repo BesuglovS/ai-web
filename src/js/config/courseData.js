@@ -6,7 +6,7 @@ export const SECTION_META = [
 export const LESSON_META = [
   { number: 1, slug: '01-vscode-cline', title: 'VS Code + Cline: установка и настройка', section: 'tools', description: 'Пошагово: ставим VS Code, расширение Cline, подключаем модель по API-ключу и делаем первый проект с ИИ-агентом.', duration: '25 мин', complexity: 'beginner' },
   { number: 2, slug: '02-nodejs-opencode', title: 'Node.js + opencode 2: установка и настройка', section: 'tools', description: 'Пошагово: ставим Node.js LTS и opencode 2, подключаем провайдера моделей и запускаем первого ИИ-агента в терминале.', duration: '25 мин', complexity: 'beginner' },
-  { number: 3, slug: '03-ai-lesson-site', title: 'Страница или сайт по теме урока с ИИ', section: 'practice', description: 'Как школьнику и учителю создать учебную веб-страницу или сайт с ИИ: общий каркас запроса, два готовых промпта, проверка и публикация.', duration: '40 мин', complexity: 'basic' }
+  { number: 3, slug: '03-ai-lesson-site', title: 'Страница или сайт по теме урока с ИИ', section: 'practice', description: 'Как школьнику и учителю создать учебную веб-страницу или сайт с ИИ: общий каркас запроса, готовые промпты для школьника, учителя и сайта, проверка и публикация.', duration: '40 мин', complexity: 'basic' }
 ];
 
 export const TOTAL_LESSONS = LESSON_META.length;
